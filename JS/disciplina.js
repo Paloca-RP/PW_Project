@@ -2,16 +2,20 @@ class Disciplina
 {
     constructor (id, nome, docente)
     {
-        this.id = id;
-        this.nome = nome;
-        this.docente = docente;
+        this.id = id
+        if(nome != null){
+            this.nome
+        }else{
+            nome = ""
+        }
+        this.docente = docente
     }    
 }
 
 class ListaDisciplinas
 {
     constructor(){
-        this.disciplinas = [];
+        this.disciplinas = []
     }
 
     adicionarDisciplina(nome, docente){
@@ -22,23 +26,23 @@ class ListaDisciplinas
         let mx = 0;
         for(let disciplina of this.disciplinas)
             if ( disciplina.id > mx)
-                mx = disciplina.id;
+                mx = disciplina.id
         mx++;
 
         let disciplina = new Disciplina( mx, nome, docente );
-        this.disciplinas.push(disciplina);
+        this.disciplinas.push(disciplina)
     }
 
     showDisciplinas(divid){
         let divobj = document.getElementById(divid);
-        var str = '<table  class="table"><thead>';
+        var str = '<table  class="table"><thead>'
         str += `<tr>
                 <th>Nome</th>
-            </tr><tbody>`;
+            </tr><tbody>`
         for( var dis of this.disciplinas)
-            str += '<tr  class="success"><td>' + dis.nome + "</td></tr>";
-        str += "</tbody></table>";
-        divobj.innerHTML = str;
+            str += '<tr  class="success"><td>' + dis.nome + "</td></tr>"
+        str += "</tbody></table>"
+        divobj.innerHTML = str
 
     }
 

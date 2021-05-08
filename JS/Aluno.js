@@ -7,30 +7,32 @@ class Aluno{
 
     constructor(id, nome, dataNasc, genero, email, foto){ 
         this.id = id 
-        
-        if(nome != null){
-            this.nome = nome
-        }else
-            nome = "";
-
         this.dataNasc = dataNasc
         this.genero = genero
 
+        if(nome != null){
+            this.nome = nome
+        }else{
+            nome = ""
+        }
+        
         if(email != null){
             this.email = email
-        }else
+        }else{
             email = ""
+        }
 
         if(foto != null){
             this.foto = foto
-        }else
-        foto = "";
+        }else{
+            foto = ""
+        }
     }
 }
 class ListaAlunos
 {
     constructor(){
-        this.alunos = [];
+        this.alunos = []
     }
 
     adicionarAluno(nome, dataNascimento, genero, email, foto){
@@ -41,23 +43,23 @@ class ListaAlunos
         let mx = 0;
         for(let aluno of this.alunos)
             if ( aluno.id > mx)
-                mx = aluno.id;
+                mx = aluno.id
         mx++;
 
-        let aluno = new Aluno( mx, nome, dataNascimento, genero, email, foto );
-        this.alunos.push(aluno);
+        let aluno = new Aluno( mx, nome, dataNascimento, genero, email, foto )
+        this.alunos.push(aluno)
     }
 
         
     showAlunos(divid){
-        let divobj = document.getElementById(divid);
+        let divobj = document.getElementById(divid)
         //while(divobj.firstChild)
         //    divobj.removeChild(divobj.firstChild);
-        var str = "<table>";
+        var str = "<table>"
         for( var alu of this.alunos)
-            str += "<tr><td>" + alu.nome + "</td></tr>";
-        str += "</table>";
-        divobj.innerHTML = str;
+            str += "<tr><td>" + alu.nome + "</td></tr>"
+        str += "</table>"
+        divobj.innerHTML = str
     }
 
 }

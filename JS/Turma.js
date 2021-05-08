@@ -5,40 +5,40 @@ class Turma{
 
     constructor (id, nome, ano, responsavel, emailResponsavel, curso, listaAlunos, listaDisciplinas){
         this.id = id
-        this.ano = ano;
-        this.listaAlunos = listaAlunos;
-        this.listaDisciplinas = listaDisciplinas;
+        this.ano = ano
+        this.listaAlunos = listaAlunos
+        this.listaDisciplinas = listaDisciplinas
         
         if(nome != null){
-            this.nome = nome;
+            this.nome = nome
         }else{
-            nome = "";
+            nome = ""
         }
 
         if(responsavel != null){
-            this.responsavel = responsavel;
+            this.responsavel = responsavel
         }else{
-            responsavel = "";
+            responsavel = ""
         }
 
         if(emailResponsavel != null){
-            this.emailResponsavel = emailResponsavel;
+            this.emailResponsavel = emailResponsavel
         }else{
-            emailResponsavel = "";
+            emailResponsavel = ""
         }
 
         if(curso != null){
             this.curso = curso;
         }else{
-            curso = "";
+            curso = ""
         }
     }
 
     showDisciplinas(divid){
-        this.listaDisciplinas.showDisciplinas(divid);
+        this.listaDisciplinas.showDisciplinas(divid)
     }
 
     showAlunos(divid){
-        this.listaAlunos.showAlunos(divid);
+        this.listaAlunos.showAlunos(divid)
     }
 }
