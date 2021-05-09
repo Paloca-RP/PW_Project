@@ -27,14 +27,14 @@ class ListaDisciplinas
         for(let disciplina of this.disciplinas)
             if ( disciplina.id > mx)
                 mx = disciplina.id
-        mx++;
+        mx++
 
-        let disciplina = new Disciplina( mx, nome, docente );
+        let disciplina = new Disciplina( mx, nome, docente )
         this.disciplinas.push(disciplina)
     }
 
     showDisciplinas(divid){
-        let divobj = document.getElementById(divid);
+        let divobj = document.getElementById(divid)
         var str = '<table  class="table"><thead>'
         str += `<tr>
                 <th>Nome</th>

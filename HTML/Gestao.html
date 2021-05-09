@@ -7,13 +7,22 @@
 </head>
 <!--
      Página de Gestão
-    o Apresenta o nome/ano da turma.
-    o Apresenta uma lista de disciplinas
-    o Apresenta uma lista de alunos
-    o Permite adicionar, apagar ou alterar disciplinas e alunos.
-         Nos dados da disciplina, deve-se poder indicar quais os alunos da turma que estão nela inscritos e a nota final
+        o Apresenta o nome/ano da turma. -> ponto1
+        o Apresenta uma lista de disciplinas
+        o Apresenta uma lista de alunos
+        o Permite adicionar, apagar ou alterar disciplinas e alunos.
+     Nos dados da disciplina, deve-se poder indicar quais os alunos da turma que estão nela inscritos e a nota final
 -->
-<body>
-    
+<body align="center" onload="ListaAlunos.listaGlobal.showAlunos">
+    <h1 align="center">Gestão</h1>
+
+    <div id ="Turma">
+        <h3>Turma</h3>
+        <select name="turma" id="turma">ano</select> <br><br>
+        <h3>Ano da turma</h3>
+        <select name="ano" id="ano">ano</select>
+    </div>
+
+
 </body>
 </html>
