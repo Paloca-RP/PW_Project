@@ -31,6 +31,7 @@ class Aluno{
         }else{
             foto = ""
         }
+        //ola
     }
 }
 class ListaAlunos{
