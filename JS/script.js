@@ -72,4 +72,15 @@ class Revisao{
     }
 }
 
+function StringNome(nome){ 
+    //função que transforma uma String em nome próprio
+
+    var splitNome = nome.toLowerCase().split(' ');
+
+    for (var i = 0; i < splitNome.length; i++) 
+        splitNome[i] = splitNome[i].charAt(0).toUpperCase() + splitNome[i].substring(1);  
+
+    return splitNome.join(' '); 
+}
+
 
