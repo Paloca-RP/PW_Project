@@ -31,12 +31,12 @@ class Turma{
         this.disciplina.push(new Disciplina(this.disciplina.length + 1, nome, docente));
     }
 
-    showAlunos(divid){
+    showTurmaAlunos(divid){
         this.aluno.showAlunos(divid);
 
     }
 
-    showDisciplinas(divid){
+    showTurmaDisciplinas(divid){
         this.disciplina.showDisciplinas(divid);
     }
 }
@@ -49,13 +49,6 @@ class Aluno{
         this.genero = genero
         this.email = email
         this.foto = foto
-    }
-
-}
-
-class ListarAlunos{
-    constructor(){
-        this.alunos = [];
     }
 
     showAlunos(divid){ //Lista os alunos
@@ -113,21 +106,16 @@ class ListarAlunos{
         divobj.appendChild(table);
 
     }
+
 }
+
+    
 
 class Disciplina{
     constructor (id, nome, docente){
         this.id = id        
         this.nome = nome        
         this.docente = docente
-    }
-    
-    
-}
-
-class ListarDisciplinas{
-    constructor(){
-        this.disciplinas = [];
     }
 
     showDisciplinas(divid){ //Lista as disciplinas
@@ -169,7 +157,11 @@ class ListarDisciplinas{
 
         divobj.appendChild(table);
     }
+    
+    
 }
+
+    
 
 class InscricaoDisc{
     constructor(){
