@@ -19,6 +19,7 @@ class Turma{
         if(/[A-z]/.test(dataNasc))
             throw "Data Inválida!"
         
+        nome = nome.StringNome();
         this.aluno.push(new Aluno(this.aluno.length + 1, nome, dataNasc, genero, email, foto));
     }
 
@@ -26,6 +27,7 @@ class Turma{
         if(!nome || !docente)
             throw "Dado(s) inválidos!";
 
+        nome = nome.StringNome();
         this.disciplina.push(new Disciplina(this.disciplina.length + 1, nome, docente));
     }
 }
