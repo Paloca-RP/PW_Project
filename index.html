@@ -3,42 +3,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="CSS/styles.css">
   <script src="JS/script.js"></script>
-  <!--BootStrap-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!--<script src="JS/initialize.js"></script>-->
   
   <title>Pagina Principal</title>
 </head>
 <body>
 
-  <div class="jumbotron text-center">
-    <h1>Projecto de Programação WEB</h1>
-    <p>Projecto desenvolvido por Ricardo Gualdino e por Ricardo Palhoça</p> 
-  </div>
+  <h1>Projecto de Programação WEB</h1>
+  <p>Projecto desenvolvido por Ricardo Gualdino e por Ricardo Palhoça</p> 
 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <h3>Gestão de Turmas</h3>
-          <a href="HTML/Gestao.html"></a>
-      </div>
-      <div class="col-sm-4">
-        <h3>Informação de Turmas</h3>
-        <a href="HTML/Turma_Info.html"></a>
-      </div>
-      <div class="col-sm-4">
-        <h3>Revisões</h3>        
-        <a href="HTML/Revisoes.html"></a>
-      </div>
-      <div class="col-sm-4">
-        <h3>Créditos</h3>        
-        <a href="HTML/Créditos.html"></a>
-      </div>
-    </div>
-  </div>
+  <nav>
+    <ul>
+      <li><a href="">Gestão Turma</a></li>
+      <li><a href="">Informação Turma</a></li>
+      <li><a href="">Revisões</a></li>
+      <li><a href="">Marcar Revisões</a></li>      
+    </ul>
+  </nav>
+
+  <table class="Show_Disc">
+
+  </table>
+
+  <span>Mostrar: </span>
+  <button onclick="show('disciplina')">Disciplinas</button>
+  <button onclick="show('aluno')">Alunos</button>
 
 </body>
 </html>
