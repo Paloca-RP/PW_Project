@@ -19,6 +19,7 @@ class Turma{
         if(/[A-z]/.test(dataNasc))
             throw "Data Inválida!"
         
+        nome = nome.StringNome();
         this.aluno.push(new Aluno(this.aluno.length + 1, nome, dataNasc, genero, email, foto));
     }
 
@@ -26,6 +27,7 @@ class Turma{
         if(!nome || !docente)
             throw "Dado(s) inválidos!";
 
+        nome = nome.StringNome();
         this.disciplina.push(new Disciplina(this.disciplina.length + 1, nome, docente));
     }
 
@@ -188,6 +190,17 @@ class Revisao{
         this.efetiva
         this.fechada
     }
+}
+
+function StringNome(nome){ 
+    //função que transforma uma String em nome próprio
+
+    var splitNome = nome.toLowerCase().split(' ');
+
+    for (var i = 0; i < splitNome.length; i++) 
+        splitNome[i] = splitNome[i].charAt(0).toUpperCase() + splitNome[i].substring(1);  
+
+    return splitNome.join(' '); 
 }
 
 
