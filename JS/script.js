@@ -28,6 +28,15 @@ class Turma{
 
         this.disciplina.push(new Disciplina(this.disciplina.length + 1, nome, docente));
     }
+
+    showAlunos(divid){
+        this.aluno.showAlunos(divid);
+
+    }
+
+    showDisciplinas(divid){
+        this.disciplina.showDisciplinas(divid);
+    }
 }
 
 class Aluno{
@@ -38,6 +47,13 @@ class Aluno{
         this.genero = genero
         this.email = email
         this.foto = foto
+    }
+
+}
+
+class ListarAlunos{
+    constructor(){
+        this.alunos = [];
     }
 
     showAlunos(divid){ //Lista os alunos
@@ -69,7 +85,7 @@ class Aluno{
         var tbody = document.createElement("tbody");
         table.appendChild(tbody);
 
-        for(let alunos of this.aluno){
+        for(let alunos of this.alunos){
             var row = document.createElement("tr");
             tbody.appendChild(row);
             var td = document.createElement("td");
@@ -93,6 +109,7 @@ class Aluno{
         }
 
         divobj.appendChild(table);
+
     }
 }
 
@@ -103,6 +120,14 @@ class Disciplina{
         this.docente = docente
     }
     
+    
+}
+
+class ListarDisciplinas{
+    constructor(){
+        this.disciplinas = [];
+    }
+
     showDisciplinas(divid){ //Lista as disciplinas
         let divobj = document.getElementById(divid);
         while(divobj.firstChild){
