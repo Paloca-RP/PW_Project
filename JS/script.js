@@ -107,9 +107,7 @@ class Aluno{
 
     }
 
-}
-
-    
+} 
 
 class Disciplina{
     constructor (id, nome, docente){
@@ -159,9 +157,7 @@ class Disciplina{
     }
     
     
-}
-
-    
+} 
 
 class InscricaoDisc{
     constructor(){
