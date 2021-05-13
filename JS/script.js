@@ -23,12 +23,33 @@ class Turma{
         this.aluno.push(new Aluno(this.aluno.length + 1, nome, dataNasc, genero, email, foto));
     }
 
+    removeAluno(id){
+        let contador = 0;
+        for(let aluno of this.aluno){
+            if(aluno.id == id){
+                this.aluno.splice(contador, 1);
+            }
+            contador++;
+        }
+
+    }
+
     addDisciplina(nome, docente){
         if(!nome || !docente)
             throw "Dado(s) inválidos!";
 
         nome = nome.StringNome();
         this.disciplina.push(new Disciplina(this.disciplina.length + 1, nome, docente));
+    }
+
+    removeDisciplina(id){
+        let contador = 0;
+        for(let disciplina of this.disciplina){
+            if(disciplina.id == id){
+                this.disciplina.splice(contador, 1);
+            }
+            contador++;
+        }
     }
 
     showTurmaAlunos(divid){
@@ -165,6 +186,12 @@ class InscricaoDisc{
         this.disciplina_ID
         this.aluno_ID
         this.nota
+    }
+
+    showInscricoesDisc(disciplina_ID){
+
+        //  Inscrições por disciplina
+
     }
 }
 
