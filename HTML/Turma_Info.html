@@ -4,12 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informações da Turma</title>
-
-    <script src="../JS/script.js">
-        window.onload = function(){
-            window.turma.showTurmaAlunos('turma')
-        }
-    </script>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <script src="../JS/script.js"></script>
 
 </head>
 <!--
@@ -19,10 +15,28 @@
         o Deve conter uma lista das disciplinas da turma.
         o Ao clicar numa das disciplinas, devem ser destacados os alunos nela inscritos.
 -->
-<body>
+<body onload="ListaPessoas.listaGlobal.popularTabela('tabelaPessoas')">
+    <div id="body_Turmainfo">
+        <div id="div1">
+            <h2>Turma</h2>
+            <p>Lista de Turmas</p>
+            <div id="tabelaTurmas">
 
-    Turmas    
-    <div id="turma"></div>
-  
+            </div>
+            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabela('tabelaPessoas')" role="button">Reload</a> &nbsp; 
+            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabelaNome('tabelaPessoas')" role="button">Ordenar por Turma</a> &nbsp;   
+            <a class="btn btn-primary" href="" role="button">Procurar por Truma</a>
+        </div>
+        <div id="div2">
+            <h2>Alunos</h2>
+            <p>Lista de Alunos</p>
+            <div id="tabelaTurmas">
+
+            </div>
+            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabela('tabelaPessoas')" role="button">Reload</a> &nbsp; 
+            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabelaNome('tabelaPessoas')" role="button">Ordenar por Turma</a> &nbsp;   
+            <a class="btn btn-primary" href="" role="button">Procurar por Truma</a>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,7 +3,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão</title>
+    <title>Gestão Turmas</title>
+    <script src="../JS/script.js"></script>
 </head>
 <!--
      Página de Gestão
@@ -13,15 +14,20 @@
         o Permite adicionar, apagar ou alterar disciplinas e alunos.
      Nos dados da disciplina, deve-se poder indicar quais os alunos da turma que estão nela inscritos e a nota final
 -->
-<body align="center" onload="ListaAlunos.listaGlobal.showAlunos">
-    <h1 align="center">Gestão</h1>
 
-    <div id ="Turma">
-        <h3>Turma</h3>
-        <select name="turma" id="turma">ano</select> <br><br>
-        <h3>Ano da turma</h3>
-        <select name="ano" id="ano">ano</select>
-    </div>
+<body align="center"  onload="showTurmas('turma')">
+    <h1>Gestão Turmas</h1>
+    <select id="turmas">
+        <option value="">Selecione uma Turma</option>
+    </select>
+    <!--http://devfuria.com.br/javascript/manipulando-combobox-select-com-javascript/-->
+
+    <select id="ano">
+        <option value="">Selecione um ano</option>  
+        <option value="first">1 ano</option>      
+        <option value="second">2 ano</option>
+        <option value="third">3 ano</option>
+    </select>
 
 
 </body>
