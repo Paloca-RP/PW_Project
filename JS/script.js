@@ -190,7 +190,10 @@ class InscricaoDisc{
 
     showInscricoesDisc(disciplina_ID){
 
-        //  Inscrições por disciplina
+        /*
+        O id da disciplina vai-se buscar ao botão da disciplina (que se vai clicar)
+        E a partir daí é só listar todas as inscrições com esse ID
+        */
 
     }
 }
