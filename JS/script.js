@@ -187,6 +187,12 @@ class InscricaoDisc{
         this.aluno_ID
         this.nota
     }
+
+    showInscricoesDisc(disciplina_ID){
+
+        //  Inscrições por disciplina
+
+    }
 }
 
 class Revisao{
