@@ -6,12 +6,6 @@
     <title>Informações da Turma</title>
     <link rel="stylesheet" href="../CSS/styles.css">
     <script src="../JS/script.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
 </head>
 <!--
      Página de Informação da Turma
@@ -20,68 +14,29 @@
         o Deve conter uma lista das disciplinas da turma.
         o Ao clicar numa das disciplinas, devem ser destacados os alunos nela inscritos.
 -->
-<body>
-    
-    <div class="row" align="center">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4">Disciplinas</div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4">Alunos</div>
-        <div class="col-sm-1"></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4" id="disciplinas"></div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4" id="alunos"></div>
-        <div class="col-sm-1"></div>
-      </div>
-    
-      <div class="modal fade" id="editAlunoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Editar Aluno</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <input type="hidden" id="idaluno">
-              Nome: <input type="txt" id="nomealuno">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" onclick="saveAluno()">Gravar</button>
-            </div>
+<body align="center"> 
+  <h1 class="NomeTurma"></h1>
+
+  <table class="turmaShow">
+
+  </table>
+  
+  <div>
+      <span>Mostrar</span>
+      <button id="disciplica" onclick="show('Disciplina')" name="mostra">Disciplinas</button>
+      <button onclick="show('Aluno')" name="show">Aluno</button>
+  </div>
+
+  <div class="modal">
+      <div class="modal-content">
+          <div>
+              <button class="guardar" type="button">Guardar</button>
+              <span class="modal-close">&times;</span>
           </div>
-        </div>
       </div>
+  </div>
 
-
+<script src="../js/script.js"></script>
 
 </body>
 </html>
-
-<!--<div id="body_Turmainfo">
-        <div id="div1">
-            <h2>Turma</h2>
-            <p>Lista de Turmas</p>
-            <div id="tabelaTurmas">
-
-            </div>
-            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabela('tabelaPessoas')" role="button">Reload</a> &nbsp; 
-            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabelaNome('tabelaPessoas')" role="button">Ordenar por Turma</a> &nbsp;   
-            <a class="btn btn-primary" href="" role="button">Procurar por Truma</a>
-        </div>
-        <div id="div2">
-            <h2>Alunos</h2>
-            <p>Lista de Alunos</p>
-            <div id="tabelaTurmas">
-
-            </div>
-            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabela('tabelaPessoas')" role="button">Reload</a> &nbsp; 
-            <a class="btn btn-primary" href="javascript: ListaPessoas.listaGlobal.popularTabelaNome('tabelaPessoas')" role="button">Ordenar por Turma</a> &nbsp;   
-            <a class="btn btn-primary" href="" role="button">Procurar por Truma</a>
-        </div>
-    </div>-->
