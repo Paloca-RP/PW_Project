@@ -257,39 +257,6 @@ class InscricaoDisc{
     }
 }
 
-class Revisao{
-    constructor(){
-        this.dia
-        this.disciplina_ID
-        this.aluno_ID
-        this.notaAntes
-        this.notaDepois
-        this.efetiva
-        this.fechada
-    }
-
-    showMarcacoesDia(dia){
-        /*
-        Vai ser feito um show em que se vai filtrar com um if todas as revisões
-        A variavel dia significa o dia atual pois esta função vai ser utilizada na Página Inicial
-        Utilizamos um if com um for para filtrarmos os dias
-        */
-    }
-
-    fecharRevisao(dia, disciplina_ID, aluno_ID, notaDepois, efetiva, fechada){
-
-        /*
-        Vamos usar as 1ªs 3 variaveis em cima para isolar a revisao que queremos editar
-        Alteramos a notaDepois, efetiva e fechada para o que quisermos através de um if com um for
-        */
-    }
-
-    marcarRevisao(disciplina_ID, dia){
-        /*
-        Vamos adicionar revisões para o dia atual ou o seguinte para todos os alunos inscritos na disciplina selecionada
-        */
-    }
-}
 
 function StringNome(nome){ 
     //função que transforma uma String em nome próprio
