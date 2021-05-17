@@ -55,6 +55,21 @@ class Turma{
         this.disciplina.push(new Disciplina(this.disciplina.length + 1, nome, docente));
     }
 
+    editDisciplina(id, atribute, value){
+        if(!value){
+            throw "Dado(s) inválidos!"
+        }else{
+            for(var i = 0; i<this.disciplina.length; i++){
+                if(this.disciplina[i].id == id){
+                    this.disciplina[i][atribute] = value;
+                    alert("O aluno com o ID: " + i + " teve o atributo: " + atribute + " alterado para: " + value + "!");
+                } else {
+                    throw "Disciplina não encontrada!"
+                }
+            } 
+        }
+    }
+
     removeDisciplina(id){
         let contador = 0;
         for(let disciplina of this.disciplina){
