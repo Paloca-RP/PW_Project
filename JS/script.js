@@ -36,12 +36,14 @@ class Turma{
 
     editAluno(id, atribute, value){
         if(!value){
-            throw "Dado(s) inválidos!" 
+            throw "Dado(s) inválidos!";
         }else{
             for(var i = 0; i < this.aluno.length; i++){
                 if(this.aluno[i].id == id){
                     this.aluno[i][atribute] = value;
                     alert("O aluno com o ID: " + i + " teve o Atributo: " + atribute + " alterado para: " + value + ".");
+                }else{
+                    throw "Aluno não encontrado!";
                 }
             } 
         }    
