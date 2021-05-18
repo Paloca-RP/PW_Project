@@ -17,18 +17,42 @@
 
 <body align="center"  onload="showTurmas('turma')">
     <h1>Gestão Turmas</h1>
-    <select id="turmas">
-        <option value="">Selecione uma Turma</option>
-    </select>
-    <!--http://devfuria.com.br/javascript/manipulando-combobox-select-com-javascript/-->
-
-    <select id="ano">
-        <option value="">Selecione um ano</option>  
-        <option value="first">1 ano</option>      
-        <option value="second">2 ano</option>
-        <option value="third">3 ano</option>
-    </select>
-
+    
+    <form action="../JS/script.js" method="POST">
+        <fieldset>
+            <h1>Inserir aluno</h1>
+            <div>
+                <label>Nome</label>
+                <input type="text" name="nome" id="nome">
+            </div>   
+            <br>
+            <div>
+                <label>Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <br>
+            <div>
+                <label>Data Nascimento</label>
+                <input type="date" id="dataNasc" name="dataNasc">
+            </div>
+            <br>
+            <div>
+                <label>Genero</label>
+                <select id="genero">
+                    <option selected disabled value="">Selecione</option>
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+                    <option>Outro...</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label>Foto</label>
+                <input type="text" name="foto" id="foto">
+            </div>      
+        </fieldset>
+    </form>
+    
 
 </body>
 </html>
