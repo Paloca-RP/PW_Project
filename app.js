@@ -23,7 +23,7 @@ var options = {
         "png": "image/png",
         "ico": "image/x-icon"
     }
-};
+}
 
 function logOnDev(message) {
     if (process.env.NODE_ENV === "development") {
