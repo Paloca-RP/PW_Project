@@ -18,7 +18,8 @@
 <body align="center"  onload="showTurmas('turma')">
     <h1>Gestão Turmas</h1>
 
-    <div id=""><!--Mostrar Alunos-->
+    <button onclick="showTurmaAlunos('listaAlunos')">Alunos</button><br>
+    <div id="listaAlunos"><!--Mostrar Alunos-->
 
     </div>
     
@@ -45,14 +46,18 @@
                 <select id="genero">
                     <option selected disabled value="">Selecione</option>
                     <option>Masculino</option>
-                    <option>Femenino</option>
-                    <option>Outro...</option>
+                    <option>Feminino</option>
+                    <option>Outro</option>
                 </select>
             </div>
             <br>
             <div>
                 <label>Foto</label>
                 <input type="text" name="foto" id="foto">
+            </div>
+            <br>
+            <div>
+                <button type="submit" onclick="addAluno();">Submeter</button>
             </div>      
         </fieldset>
     </form>
