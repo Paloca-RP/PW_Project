@@ -9,6 +9,7 @@ class Turma{
 
         this.aluno = []
         this.disciplina = []
+        this.inscricao = []
     }
 
     addAluno(nome, dataNasc, genero, email, foto){
@@ -95,6 +96,12 @@ class Turma{
         this.InscricaoDisc.showInscricoesDisc(divid, disciplina_ID);
     }
 
+    addInscricao(disciplina_ID, aluno_ID, nota){
+        if(!disciplina_ID || !aluno_ID || !nota)
+            throw "Dado(s) inválidos!";
+
+        this.inscricao.push(new InscricaoDisc(this.inscricao,length + 1, disciplina_ID, aluno_ID, nota));
+    }
     
 }
 
