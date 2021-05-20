@@ -18,5 +18,71 @@
 <body align="center"  onload="showTurmas('turma')">
     <h1>Gestão Turmas</h1>
 
+    <div id=""><!--Mostrar Alunos-->
+
+    </div>
+    
+    <form action="../JS/script.js" method="POST">
+        <fieldset>
+            <h1>Inserir aluno</h1>
+            <div>
+                <label>Nome</label>
+                <input type="text" name="nome" id="nome">
+            </div>   
+            <br>
+            <div>
+                <label>Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <br>
+            <div>
+                <label>Data Nascimento</label>
+                <input type="date" id="dataNasc" name="dataNasc">
+            </div>
+            <br>
+            <div>
+                <label>Genero</label>
+                <select id="genero">
+                    <option selected disabled value="">Selecione</option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                    <option>Outro...</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label>Foto</label>
+                <input type="text" name="foto" id="foto">
+            </div>      
+        </fieldset>
+    </form>
+
+    <div id=""><!--Mostrar disciplinas-->
+
+    </div>
+
+
+
+    <form action="../JS/script.js" method="POST">
+        <fieldset>
+            <h1>Inserir Disciplina</h1>
+            <div>
+                <label>Nome</label>
+                <input type="text" name="nome" id="nome">
+            </div>   
+            <br>
+            <div>
+                <label>Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <br>
+            <div>
+                <label>Docente</label>
+                <input type="text" name="docente" id="docente">
+            </div>      
+        </fieldset>
+    </form>
+    
+
 </body>
 </html>

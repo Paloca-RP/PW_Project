@@ -12,13 +12,6 @@ class Turma{
     }
 
     addAluno(nome, dataNasc, genero, email, foto){
-        
-        nome = document.getElementById('nome').value;
-        dataNasc = document.getElementById('dataNasc').value;
-        genero = document.getElementsById('genero').value;
-        email = document.getElementsById('email').value;
-        foto = document.getElementsById('foto').value;
-
         if(!nome || !dataNasc || !genero || !email || !foto)
             throw "Dado(s) inválidos!";
         if(/[0-9]/.test(nome))
