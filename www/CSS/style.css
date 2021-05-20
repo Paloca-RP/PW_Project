@@ -1,3 +1,35 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li, a{
+  text-decoration: none;
+  color: #edf0f1;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+ul{
+  list-style: none;
+}
+
+ul li
+{
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+ul li a{transition: all 0.3s ease 0s;}
+ul li a:hover{color: #3cff00;}
+
+
 /*////////////////__Global Things*/
 body, html{
   margin:  1vw; 
@@ -14,6 +46,7 @@ body{
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  font-size: 20px;
   color: #f8f8f8;
   background: #212121;
   font-family: Arial, Helvetica, sans-serif;
@@ -22,31 +55,6 @@ body{
   position: absolute;
   top: 0;
   width: 100%;
-}
-
-/*////////////////__NAVBAR CONTENT*/
-body {
-  margin: 0;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0px 50px;
-  overflow: hidden;
-  background-color: #333;
-}
-li {
-  float: left;
-}
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-li a:hover {
-  background-color: #111;
 }
 
 /*////////////////__Créditos page*/
@@ -90,16 +98,22 @@ li a:hover {
   font-size: 1vw;
 }
 
-/*////////////////__Index page*/
-.geralIndex {
-  width: 100px;
-    height: 100px;
-    display: inline-block;
-}
-#alunosdiv {
-  background-color: magenta;    
-}
-#disciplinasdiv {
-  background-color: teal;
+/*////////////////__Index/gestão page*/
+
+/*
+.column 
+{
+    float: left;
+    padding: 100px 65px;
 }
 
+table 
+{
+    margin-top: 0px;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+*/

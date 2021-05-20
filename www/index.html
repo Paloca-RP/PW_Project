@@ -5,29 +5,185 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="CSS/style.css">
   <script src="JS/script.js"></script>
+  
+  
+
   <title>Pagina Principal</title>
 </head> 
 <body>
-  <nav> 
-    <ul><br>
-      <li>Menu</li>
-      <li><a href="index.html">Gestão Turma</a></li>
-      <li><a href="HTML/Turma_Info.html">Informação Turma</a></li>
-      <li><a href="HTML/Creditos.html">Créditos</a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Gestão</a></li>
+        <li><a href="HTML/Turma_Info.html">Informação Turma</a></li>
+        <li><a href="HTML/Creditos.html">Créditos</a></li>
+      </ul>
+    </nav>
+  </header>
+<br>
+<br>
 
-  <div class="geralIndex">
-    
-   
-    <div id="alunosdiv">
-      
-    </div> 
+  <button>Inscrever Aluno em Disciplina</button> <h3>Turma:TPSI 02 Ano:2020/2022 - Docente Responsável: Paula Miranda</h3>
 
-    <div id="disciplinasdiv">
-      
+  <br><br>
+
+  <div class="linha">
+    <div class="coluna">
+      <p>Aluno</p>
+      <div id="alunos"></div>
+      <button type="button" class="addAlunoBtnModal"><i class="fas fa-user-plus"></i> Adiconar aluno</button>
+    </div>
+  </div>
+
+  <br><br>
+  <div class="linha">
+    <div class="coluna">
+    <p>Disciplina</p>
+    <div id="disciplinas"></div> <br>
+    <button type="button" class="addDisciplinaBtnModal"><i class="fas fa-user-plus"></i> Adiconar disciplina</button>
     </div>
   </div>
 
 </body>
 </html>
+
+<!--Exemplo do varela
+showAlunos()
+    {
+        //Limpar div
+        while(document.getElementById('alunos').firstChild)
+        {
+            document.getElementById('alunos').removeChild(document.getElementById('alunos').firstChild);
+        }
+
+        var tabela = document.createElement("table");
+        tabela.className = "tableAlunos";
+
+        var thead = document.createElement("thead");
+        tabela.appendChild(thead);
+
+        var row = document.createElement("tr");
+        thead.appendChild(row);
+
+        var th = document.createElement("th");
+        th.appendChild(document.createTextNode("ID"));
+        //th.setAttribute("style", "display: none;");
+        row.appendChild(th);
+
+        var th = document.createElement("th");
+        th.appendChild(document.createTextNode("Nome"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Data Nascimento"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Género"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("E-mail"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Foto"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Editar"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Apagar"));
+        row.appendChild(th);
+
+        var tbody = document.createElement("tbody");
+        tabela.appendChild(tbody);
+
+        for(let alu of this.studentsList)
+        {
+            var row = document.createElement("tr");
+            tbody.appendChild(row);
+
+            var td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.id));
+            //td.setAttribute("style", "display: none;");
+            row.appendChild(td);
+
+            var td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.nome));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.dataNascimento));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.genero));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.email));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.foto));
+            row.appendChild(td);
+
+            //Icon de editar
+            td = document.createElement("td");
+            row.appendChild(td);
+
+            var imgedit = document.createElement("img");
+            imgedit.src="assets/img/user-edit.png";
+            td.appendChild(imgedit);
+            td = document.createElement("td");
+
+            var modalEdit = document.getElementById('editAlunoModal');
+            var modalClose = document.querySelector('.modal-close');
+
+            imgedit.onclick = function(){
+                var $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#EditIdAluno').val(data[0]);
+                $('#EditNomeAluno').val(data[1]);
+                $('#EditDataNascAluno').val(data[2]);
+                $('#EditGeneroAluno').val(data[3]);
+                $('#EditEmailAluno').val(data[4]);
+                $('#EditFotoAluno').val(data[5]);
+            
+                modalEdit.style.visibility = 'visible';
+                modalEdit.style.opacity = "1";
+            };
+
+            modalClose.addEventListener('click', function(){
+                modalEdit.style.visibility = 'hidden';
+                modalEdit.style.opacity = "0";
+            });
+
+            var imgdelete = document.createElement("img");
+            imgdelete.src="assets/img/user-delete.png";
+            row.appendChild(td);
+            td.appendChild(imgdelete);
+
+            imgdelete.onclick = function(){
+                var $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                TurmA.deleteAluno(data[0]);
+            };
+        }
+
+        document.getElementById('alunos').appendChild(tabela);
+    }
+-->
