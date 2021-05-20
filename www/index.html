@@ -6,98 +6,28 @@
   <link rel="stylesheet" href="CSS/style.css">
   <script src="JS/script.js"></script>
   <title>Pagina Principal</title>
-</head>
-
-  <!--  
-     Página inicial
-      o Contém um link para a gestão da turma
-      o Contém um link para a disponibilização de informação da turma.
-      o Contém um link para uma página de Revisões
-      o Contém uma lista das marcações de revisões para so dia.
-      o Clicando numa das marcações vai para a página de registo de efetivação/fecho da revisão (opcional)-->
-
-    
+</head> 
 <body>
   <nav> 
-    <ul><br><br>
-      <li>Menu</li><br>
-      <li><a href="HTML/Gestao.html">Gestão Turma</a></li>
+    <ul><br>
+      <li>Menu</li>
+      <li><a href="index.html">Gestão Turma</a></li>
       <li><a href="HTML/Turma_Info.html">Informação Turma</a></li>
+      <li><a href="HTML/Creditos.html">Créditos</a></li>
     </ul>
   </nav>
-  <div>
+
+  <div class="geralIndex">
     
-    <h1>Projecto de Programação WEB</h1>
-    <p>Projecto desenvolvido por João Caetano, Ricardo Gualdino, por Ricardo Palhoça</p> 
+   
+    <div id="alunosdiv">
       
-      <form class="" action="index.html" method="POST">
-        <fieldset>
-            <h1>Inserir aluno</h1>
-            <div>
-                <p>Nome</p>
-                <input type="text" name="nome" id="nome" value="">
-            </div>   
-            <br>
-            <div>
-                <p>Email</p>
-                <input type="text" name="email" id="email" value="">
-            </div>
-            <br>
-            <div>
-                <p>Data Nascimento</p>
-                <input type="date" id="dataNasc" name="dataNasc" value="">
-            </div>
-            <br>
-            <div>
-                <p>Genero</p>
-                <select id="genero">
-                    <option selected disabled value="">Selecione</option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                    <option>Outro</option>
-                </select>
-            </div>
-            <br>
-            <div>
-                <p>Foto</p>
-                <input type="text" name="foto" id="foto" value="">
-            </div>
-            <br>
-            <div>
-                <button type="submit" onclick="addAluno();">Submeter</button>
-            </div>      
-        </fieldset>
-    </form>
+    </div> 
 
-    <div id=""><!--Mostrar disciplinas-->
-
+    <div id="disciplinasdiv">
+      
     </div>
+  </div>
 
-    <form action="../JS/script.js" method="POST">
-        <fieldset>
-            <h1>Inserir Disciplina</h1>
-            <div>
-                <p>Nome</p>
-                <input type="text" name="nome" id="nome">
-            </div>   
-            <br>
-            <div>
-                <p>Email</p>
-                <input type="text" name="email" id="email">
-            </div>
-            <br>
-            <div>
-                <p>Docente</p>
-                <input type="text" name="docente" id="docente">
-            </div> 
-            <br>   
-            <div>
-              <button type="submit" onclick="addAluno();">Submeter</button>
-          </div>     
-        </fieldset>
-    </form>
-
-    </div>
 </body>
 </html>
-    

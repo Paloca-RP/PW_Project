@@ -1,16 +1,14 @@
-/*Global Things*/
+/*////////////////__Global Things*/
 body, html{
   margin:  1vw; 
 	padding: 2vw 5vw;
   font-size:1.5vw;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 img{
   max-width:100%;
   height:auto;
 }
-
 body{
   margin: 0;
   padding: 0;
@@ -18,44 +16,90 @@ body{
   text-align: center;
   color: #f8f8f8;
   background: #212121;
-  font-family: Androgyne;height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
 }
 
-
-/*NAVBAR CONTENT*/body {
+/*////////////////__NAVBAR CONTENT*/
+body {
   margin: 0;
 }
-
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  width: 15%;
-  background: #212121;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+  padding: 0px 50px;
+  overflow: hidden;
+  background-color: #333;
 }
-
+li {
+  float: left;
+}
 li a {
   display: block;
-  color: #f8f8f8;
-  padding: 8px 4px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
 }
-
-li a.active {
-  background-color: #4CAF50;
-  color: white;
+li a:hover {
+  background-color: #111;
 }
 
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+/*////////////////__Créditos page*/
+.corpo{
+  position:relative;
+  overflow:hidden;
+}
+.artigos2{
+  float:left;
+}
+.artigos2, .artigos2:before{
+  width:45%;
+}
+.artigos2:before{
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  background:#6d6060;
+  z-index:-1;
+  content:'';
+}
+.barra-lateral2{
+  float:right;
+  font-size: 0.5vw;
+}
+.barra-lateral2, .barra-lateral2:before{
+  width: 50%;
+}
+.barra-lateral2:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right:0;
+  z-index: -1;
+  background: #6d6060;
+}
+.espacamento2{
+  padding:1vw;
+  font-size: 1vw;
 }
 
-/*///////////////////////////////////////////////*/
+/*////////////////__Index page*/
+.geralIndex {
+  width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+#alunosdiv {
+  background-color: magenta;    
+}
+#disciplinasdiv {
+  background-color: teal;
+}
+
