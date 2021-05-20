@@ -1,0 +1,61 @@
+/*Global Things*/
+body, html{
+  margin:  1vw; 
+	padding: 2vw 5vw;
+  font-size:1.5vw;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #f8f8f8;
+  background: #212121;
+  font-family: Androgyne;height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+
+/*NAVBAR CONTENT*/body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background: #212121;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #f8f8f8;
+  padding: 8px 4px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/*///////////////////////////////////////////////*/
