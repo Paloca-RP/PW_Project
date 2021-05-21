@@ -1,4 +1,16 @@
-
+function AutoID(arrays)
+{
+    let mx = -1;
+    for(let some of arrays)
+    {
+        if (some.id > mx)
+        {
+            mx = some.id;
+        }
+    }
+    mx++;
+    return mx++;
+}
 
 class Turma{
     
@@ -14,29 +26,33 @@ class Turma{
         this.inscricao = []
     }
 
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
     addAluno(nome, dataNasc, genero, email, foto){
         if(!nome || !dataNasc || !genero || !email || !foto)
             throw "Dado(s) inválidos!";
         if(/[0-9]/.test(nome))
             throw "Nome Inválido!";
-        if(/[A-z]/.test(dataNasc))
-            throw "Data Inválida!"
         
-        nome = nome.StringNome();
-        this.aluno.push(new Aluno(this.aluno.length + 1, nome, dataNasc, genero, email, foto));
+        var id = AutoID(this.aluno)//incremento do ID
+
+        nome = StringNome(nome);
+        this.aluno.push(new Aluno(id, nome, dataNasc, genero, email, foto))
+        localStorage.setItem('turma', JSON.stringify(Turmaaaa))//a key tem de ser sempre igual
+    }
+    
+    addDisciplina(nome, docente){
+        if(!nome || !docente)
+            throw "Dado(s) inválidos!";
+
+        var id = AutoID(this.aluno)//incremento do ID
+
+        nome = StringNome(nome);
+        
+        this.disciplina.push(new Disciplina(id, nome, docente));
+        localStorage.setItem('turma', JSON.stringify(Turmaaaa))//a key tem de ser sempre igual
     }
 
-    removeAluno(id){
-        let contador = 0;
-        for(let aluno of this.aluno){
-            if(aluno.id == id){
-                this.aluno.splice(contador, 1);
-            }
-            contador++;
-        }
-
-    }
-
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
     editAluno(id, atribute, value){
         if(!value){
             throw "Dado(s) inválidos!";
@@ -50,14 +66,6 @@ class Turma{
                 }
             } 
         }    
-    }
-
-    addDisciplina(nome, docente){
-        if(!nome || !docente)
-            throw "Dado(s) inválidos!";
-
-        nome = nome.StringNome();
-        this.disciplina.push(new Disciplina(this.disciplina.length + 1, nome, docente));
     }
 
     editDisciplina(id, atribute, value){
@@ -75,6 +83,18 @@ class Turma{
         }
     }
 
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
+    removeAluno(id){
+        let contador = 0;
+        for(let aluno of this.aluno){
+            if(aluno.id == id){
+                this.aluno.splice(contador, 1);
+            }
+            contador++;
+        }
+
+    }
+
     removeDisciplina(id){
         let contador = 0;
         for(let disciplina of this.disciplina){
@@ -85,16 +105,98 @@ class Turma{
         }
     }
 
-    showTurmaAlunos(divid){
-        this.aluno.showAlunos(divid);
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
+    showAlunos(){ //Lista os alunos
+
+        //Limpar div
+        while(document.getElementById('Insert_alunos').firstChild){
+            document.getElementById('Insert_alunos').removeChild(document.getElementById('Insert_alunos').firstChild);
+        }
+
+
+        var tabela = document.createElement("table");
+        tabela.className = "tableAlunos";
+
+        var thead = document.createElement("thead");
+        tabela.appendChild(thead);
+
+        var row = document.createElement("tr");
+        thead.appendChild(row);
+
+        var th = document.createElement("th");
+        th.appendChild(document.createTextNode("ID"));
+        //th.setAttribute("style", "display: none;");
+        row.appendChild(th);
+
+        var th = document.createElement("th");
+        th.appendChild(document.createTextNode("Nome"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Data Nascimento"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Género"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("E-mail"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Foto"));
+        row.appendChild(th);
+
+        /*th = document.createElement("th");
+        th.appendChild(document.createTextNode("Editar"));
+        row.appendChild(th);
+
+        th = document.createElement("th");
+        th.appendChild(document.createTextNode("Apagar"));
+        row.appendChild(th);*/
+
+        var tbody = document.createElement("tbody");
+        tabela.appendChild(tbody);
+
+        for(let alu of this.aluno)
+        {
+            var row = document.createElement("tr");
+            tbody.appendChild(row);
+
+            var td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.id));
+            //td.setAttribute("style", "display: none;");
+            row.appendChild(td);
+
+            var td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.nome));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.dataNascimento));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.genero));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.email));
+            row.appendChild(td);
+
+            td = document.createElement("td");
+            td.appendChild(document.createTextNode(alu.foto));
+            row.appendChild(td);  
+            
+        }
+        document.getElementById('Insert_alunos').appendChild(tabela);
 
     }
 
-    showTurmaDisciplinas(divid){
-        this.disciplina.showDisciplinas(divid);
-    }
 
-    showTurmaDiscInscritos(divid, disciplina_ID){
+
+    /*showTurmaDiscInscritos(divid, disciplina_ID){
         this.InscricaoDisc.showInscricoesDisc(divid, disciplina_ID);
     }
 
@@ -103,10 +205,11 @@ class Turma{
             throw "Dado(s) inválidos!";
 
         this.inscricao.push(new InscricaoDisc(this.inscricao,length + 1, disciplina_ID, aluno_ID, nota));
-    }
+    }*/
     
 }
 
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
 class Aluno{
     constructor(id, nome, dataNasc, genero, email, foto){ 
         this.id = id 
@@ -116,65 +219,8 @@ class Aluno{
         this.email = email
         this.foto = foto
     }
-
-    showAlunos(divid){ //Lista os alunos
-        let divobj = document.getElementById(divid);
-        while(divobj.firstChild){
-            divobj.removeChild(divobj.firstChild);
-        }
-        var table = document.createElement("table");
-        table.className = "table";
-        var thead = document.createElement("thead");
-        table.append(thead);
-        var row = document.createElement("tr");
-        thead.appendChild(row);
-        var th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Id"));
-        th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Nome"));
-        th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Data de Nascimento"));
-        th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Género"));
-        th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Email"));
-        var tbody = document.createElement("tbody");
-        table.appendChild(tbody);
-
-        for(let alunos of this.alunos){
-            var row = document.createElement("tr");
-            tbody.appendChild(row);
-            var td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(alunos.id));
-            td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(alunos.nome));
-            td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(alunos.dataNasc));
-            td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(alunos.genero));
-            td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(alunos.email));
-            td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(alunos.foto));
-        }
-
-        divobj.appendChild(table);
-
-    }
-
 } 
-
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
 class Disciplina{
     constructor (id, nome, docente){
         this.id = id        
@@ -224,7 +270,7 @@ class Disciplina{
     
     
 } 
-
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
 class InscricaoDisc{
     constructor(id, disciplina_ID, aluno_ID, nota){
         this.id = id        
@@ -282,8 +328,7 @@ class InscricaoDisc{
 
     }
 }
-
-
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
 function StringNome(nome){ 
     //função que transforma uma String em nome próprio
 
