@@ -26,70 +26,83 @@
 
   <div class="linha">
     <div class="coluna">
-
-
-      <p>Aluno</p>
-      <div id="Insert_alunos"></div>
-
-      <button id="myBtn">Inserir Aluno</button>
-
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <fieldset>
-            <legend>Aluno:</legend>
-            <label for="Nome">Nome: <input type="text" id="nome"></label>
-            <br><br>
-            <label for="dataNasc">Data Nascimento: <input type="date" id="dataNasc"></label>
-            <br><br>
-            <label for="genero">Genero: <input type="text" id="genero"></label>
-            <br><br>
-            <label for="email">Email: <input type="text" id="email"></label>
-            <br><br>
-            <label for="foto">Foto: <input type="text" id="foto"></label>
-            <br><br>
-
-            <button onclick="guardarAluno()">Inserir</button>     
-          </fieldset>
+      <p>Aluno</p><div id="Insert_alunos"></div>
+      <!--Modal para inserir alunos-->
+      <button type="button" class="btn btn-info btn-md" id="myBtn"><img src="Images/add_aluno.png" alt="add_aluno"></button>
+      
+      <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">                
+                <h4 class="modal-title">Aluno</h4>
+              </div>
+              <div class="modal-body">
+                <fieldset><br>
+                  <label for="Nome">Nome: <input type="text" id="nome"></label>
+                  <br><br>
+                  <label for="dataNasc">Data Nascimento: <input type="date" id="dataNasc"></label>
+                  <br><br>
+                  <label for="genero">Genero: <input type="text" id="genero"></label>
+                  <br><br>
+                  <label for="email">Email: <input type="text" id="email"></label>
+                  <br><br>
+                  <label for="foto">Foto: <input type="text" id="foto"></label>
+                  <br><br>
+                  <button onclick="guardarAluno()"><img src="Images/add_modall.png" alt="add"></button>     
+                  <br><br>
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <br>
+                <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+              </div>
+            </div>
+          </div>
         </div>
-
-      </div>
     </div>
   </div>
+    
 
   <br><br>
+
+
   <div class="linha">
     <div class="coluna">
-    <p>Disciplina</p>
-    <div id="disciplinas"></div>
-    <br>
-    <button id="myBtn">Inserir Disciplinas</button>
+      <p>Disciplina</p>
+      <div id="Insert_Disc"></div>
 
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <fieldset>
-            <legend>Disciplinas:</legend>
-            <label for="Nome">Nome: <input type="text" id="nome"></label>
-            <br><br>
-            <label for="docente">Docente: <input type="text" id="docente"></label>
-            <br><br>
-
-            <button onclick="guardarDisc()">Inserir</button>     
-          </fieldset>
+      <br>  <!--Modal para inserir Disciplinas-->  
+      <button id="myBtn2"><img src="Images/disciplina.png" alt=""></button>
+      <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Disciplinas</h4>
+            </div>
+            <div class="modal-body">
+              <fieldset><br>      
+                <label for="Nome">Disciplina: <input type="text" id="nome"></label>
+                <br><br>
+                <label for="docente">Docente: <input type="text" id="docente"></label>
+                <br><br>    
+                <button onclick="guardarDisc()"><img src="Images/add_modall.png" alt="add"></button>   <br>  <br>
+              </fieldset>
+            </div>
+            <div class="modal-footer">
+              <br>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>          
         </div>
       </div>
-
     </div>
   </div>
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <script src="JS/script.js"></script>
   <script src="JS/guardar.js"></script>

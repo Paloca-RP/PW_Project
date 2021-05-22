@@ -8,21 +8,22 @@ window.addEventListener('load', function(){
 
         for(let aluno of aux1.aluno){
             Turmaaaa.addAluno(aluno.nome, aluno.dataNasc, aluno.genero, aluno.email, aluno.foto)            
-       }
+        }
         for(let disciplina of aux1.disciplina){
             Turmaaaa.addDisciplina(disciplina.nome, disciplina.docente)
         }
-         Turmaaaa.showAlunos()
-        
-        
-        
-       
+
+        Turmaaaa.showAlunos()
+        Turmaaaa.showDisciplina()
+               
     }else{
         
-        Turmaaaa = new Turma("TPSI-02", 2021, "Paula Miranda", "pm@ips.pt", "TPSI");
-        Turmaaaa.addAluno("nome","2000-11-10","Masculino","piça","come");
-        Turmaaaa.addAluno("Gay","2000-11-10","Masculino","200210014@estudantes.ips.pt","foto.png");
-        Turmaaaa.addDisciplina("Programação Orientada a Objetos","Pedro Mesquita");
+        Turmaaaa = new Turma("TPSI-02", 2020, "Paula Miranda", "paulamiranda@ips.pt", "PMiranda-jpg");
+        Turmaaaa.addAluno("Ricardo Palhoça","06/02/2002","Masculino","rpalhoca@ip.pt","Paloca.png");
+        Turmaaaa.addAluno("Pedro Serpe","20/06/2001","Masculino","serpe@estudantes.ips.pt","serpe.png");
+        Turmaaaa.addDiscipina("Programação Orientada a Objetos","Pedro Mesquita");
+        Turmaaaa.addDisciplina("Programação Web","José Bento");
+        Turmaaaa.addDisciplina("Elementos de Matematica II","Paula Reis");
         console.log(Turmaaaa.aluno)
         localStorage.setItem("turma",JSON.stringify(Turmaaaa));
 

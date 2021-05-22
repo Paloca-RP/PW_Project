@@ -29,27 +29,33 @@ class Turma{
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
     addAluno(nome, dataNasc, genero, email, foto){
         if(!nome || !dataNasc || !genero || !email || !foto)
-            throw "Dado(s) inválidos!";
-        if(/[0-9]/.test(nome))
-            throw "Nome Inválido!";
+            alert("Dado(s) inválidos!")
+        else if(/[0-9]/.test(nome)||/[0-9]/.test(genero))
+            alert("Em nome e Genero não são aceites valorers de tipo numérico!")
         
-        var id = AutoID(this.aluno)//incremento do ID
+        else{
+            var id = AutoID(this.aluno)//incremento do ID
 
-        nome = StringNome(nome);
-        this.aluno.push(new Aluno(id, nome, dataNasc, genero, email, foto))
-        localStorage.setItem('turma', JSON.stringify(Turmaaaa))//a key tem de ser sempre igual
+            nome = StringNome(nome);
+            this.aluno.push(new Aluno(id, nome, dataNasc, genero, email, foto))
+            localStorage.setItem('turma', JSON.stringify(Turmaaaa))//a key tem de ser sempre igual
+        }
+        
     }
     
     addDisciplina(nome, docente){
         if(!nome || !docente)
-            throw "Dado(s) inválidos!";
+            alert("Dado(s) inválidos!")
+        else if(/[0-9]/.test(nome)||/[0-9]/.test(docente))
+            alert("Em nome e Genero não são aceites valorers de tipo numérico!")
+        else{
+            var id = AutoID(this.disciplina)//incremento do ID
 
-        var id = AutoID(this.aluno)//incremento do ID
-
-        nome = StringNome(nome);
-        
-        this.disciplina.push(new Disciplina(id, nome, docente));
-        localStorage.setItem('turma', JSON.stringify(Turmaaaa))//a key tem de ser sempre igual
+            nome = StringNome(nome);
+            
+            this.disciplina.push(new Disciplina(id, nome, docente));
+            localStorage.setItem('turma', JSON.stringify(Turmaaaa))//a key tem de ser sempre igual
+        }
     }
 
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
@@ -85,13 +91,24 @@ class Turma{
 
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
     removeAluno(id){
-        let contador = 0;
+        let index = 0;
+        for(let aluno of this.aluno)
+        {
+            if(aluno.id == id)
+                this.aluno.splice(index, 1);
+            index++;
+        }
+        Turma.aluno.tabela('Insert_alunos');
+        
+        
+        
+        /*let contador = 0;
         for(let aluno of this.aluno){
             if(aluno.id == id){
                 this.aluno.splice(contador, 1);
             }
             contador++;
-        }
+        }*/
 
     }
 
@@ -110,89 +127,139 @@ class Turma{
 
         //Limpar div
         while(document.getElementById('Insert_alunos').firstChild){
-            document.getElementById('Insert_alunos').removeChild(document.getElementById('Insert_alunos').firstChild);
+            document.getElementById('Insert_alunos').removeChild(document.getElementById('Insert_alunos').firstChild)
         }
 
 
-        var tabela = document.createElement("table");
-        tabela.className = "tableAlunos";
+        var tabela = document.createElement("table")
+        tabela.className = "tableAlunos"
 
-        var thead = document.createElement("thead");
-        tabela.appendChild(thead);
+        var thead = document.createElement("thead")
+        tabela.appendChild(thead)
 
-        var row = document.createElement("tr");
-        thead.appendChild(row);
+        var row = document.createElement("tr")
+        thead.appendChild(row)
 
-        var th = document.createElement("th");
-        th.appendChild(document.createTextNode("ID"));
-        //th.setAttribute("style", "display: none;");
-        row.appendChild(th);
+        var th = document.createElement("th")
+        th.appendChild(document.createTextNode("ID"))
+        row.appendChild(th)
 
-        var th = document.createElement("th");
-        th.appendChild(document.createTextNode("Nome"));
-        row.appendChild(th);
+        var th = document.createElement("th")
+        th.appendChild(document.createTextNode("Nome"))
+        row.appendChild(th)
 
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Data Nascimento"));
-        row.appendChild(th);
+        th = document.createElement("th")
+        th.appendChild(document.createTextNode("Data Nascimento"))
+        row.appendChild(th)
 
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Género"));
-        row.appendChild(th);
+        th = document.createElement("th")
+        th.appendChild(document.createTextNode("Género"))
+        row.appendChild(th)
 
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("E-mail"));
-        row.appendChild(th);
+        th = document.createElement("th")
+        th.appendChild(document.createTextNode("E-mail"))
+        row.appendChild(th)
 
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Foto"));
-        row.appendChild(th);
+        th = document.createElement("th")
+        th.appendChild(document.createTextNode("Foto"))
+        row.appendChild(th)
 
-        /*th = document.createElement("th");
-        th.appendChild(document.createTextNode("Editar"));
-        row.appendChild(th);
+        // Botão de apagar
+        th = document.createElement("th")
+        th.appendChild(document.createTextNode("Apagar"))
+       
+        row.appendChild(th)
+        /*/botão de editar
+        
+         th = document.createElement("th")
+        th.appendChild(document.createTextNode("Editar"))
+        row.appendChild(th)
+        */
 
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Apagar"));
-        row.appendChild(th);*/
+        var tbody = document.createElement("tbody")
+        tabela.appendChild(tbody)
 
-        var tbody = document.createElement("tbody");
-        tabela.appendChild(tbody);
+        for(let alu of this.aluno){
+            var row = document.createElement("tr")
+            var td = document.createElement("td")
 
-        for(let alu of this.aluno)
-        {
-            var row = document.createElement("tr");
-            tbody.appendChild(row);
+            tbody.appendChild(row)
+            
+            td.appendChild(document.createTextNode(alu.id))
+            row.appendChild(td)
 
-            var td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.id));
-            //td.setAttribute("style", "display: none;");
-            row.appendChild(td);
+            td = document.createElement("td")
+            td.appendChild(document.createTextNode(alu.nome))
+            row.appendChild(td)
 
-            var td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.nome));
-            row.appendChild(td);
+            td = document.createElement("td")
+            td.appendChild(document.createTextNode(alu.dataNascimento))
+            row.appendChild(td)
 
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.dataNascimento));
-            row.appendChild(td);
+            td = document.createElement("td")
+            td.appendChild(document.createTextNode(alu.genero))
+            row.appendChild(td)
 
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.genero));
-            row.appendChild(td);
+            td = document.createElement("td")
+            td.appendChild(document.createTextNode(alu.email))
+            row.appendChild(td)
 
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.email));
-            row.appendChild(td);
-
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.foto));
-            row.appendChild(td);  
+            td = document.createElement("td")
+            td.appendChild(document.createTextNode(alu.foto))
+            row.appendChild(td); 
             
         }
-        document.getElementById('Insert_alunos').appendChild(tabela);
+        document.getElementById('Insert_alunos').appendChild(tabela)
 
     }
+    showDisciplina(){ //Lista as disciplinas
+        while(document.getElementById('Insert_Disc').firstChild){
+            document.getElementById('Insert_Disc').removeChild(document.getElementById('Insert_Disc').firstChild)
+        }
+        var table = document.createElement("table");
+        table.className = "table";
+        var thead = document.createElement("thead");
+        table.append(thead);
+        var row = document.createElement("tr");
+        thead.appendChild(row);
+        var th = document.createElement("th");
+        row.appendChild(th);
+        th.appendChild(document.createTextNode("Id"));
+        th = document.createElement("th");
+        row.appendChild(th);
+        th.appendChild(document.createTextNode("Disciplina"));
+        th = document.createElement("th");
+        row.appendChild(th);
+        th.appendChild(document.createTextNode("Docente"));
+        
+        // Botão de apagar
+        th = document.createElement("th")
+        th.appendChild(document.createTextNode("Apagar"))
+        row.appendChild(th)
+        
+        var tbody = document.createElement("tbody");
+        table.appendChild(tbody);
+
+        for(let disciplinas of this.disciplina){
+            var row = document.createElement("tr");
+            var td = document.createElement("td");
+            tbody.appendChild(row);
+          
+
+            row.appendChild(td);
+            td.appendChild(document.createTextNode(disciplinas.id));
+            td = document.createElement("td");
+            row.appendChild(td);
+            td.appendChild(document.createTextNode(disciplinas.nome));
+            td = document.createElement("td");
+            row.appendChild(td);
+            td.appendChild(document.createTextNode(disciplinas.docente));
+        }
+
+        document.getElementById('Insert_Disc').appendChild(table)
+
+    }
+    
 
 
 
@@ -227,48 +294,6 @@ class Disciplina{
         this.nome = nome        
         this.docente = docente
     }
-
-    showDisciplinas(divid){ //Lista as disciplinas
-        let divobj = document.getElementById(divid);
-        while(divobj.firstChild){
-            divobj.removeChild(divobj.firstChild);
-        }
-        var table = document.createElement("table");
-        table.className = "table";
-        var thead = document.createElement("thead");
-        table.append(thead);
-        var row = document.createElement("tr");
-        thead.appendChild(row);
-        var th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Id"));
-        th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Nome"));
-        th = document.createElement("th");
-        row.appendChild(th);
-        th.appendChild(document.createTextNode("Docente"));
-        var tbody = document.createElement("tbody");
-        table.appendChild(tbody);
-
-        for(let disciplinas of this.disciplina){
-            var row = document.createElement("tr");
-            tbody.appendChild(row);
-            var td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(disciplinas.id));
-            td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(disciplinas.nome));
-            td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode(disciplinas.docente));
-        }
-
-        divobj.appendChild(table);
-    }
-    
-    
 } 
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
 class InscricaoDisc{

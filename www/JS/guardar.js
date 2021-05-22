@@ -15,7 +15,7 @@ function guardarAluno(){
     }
 
     if(dataNasc.value == null | dataNasc == ""){
-        dataNasc.style.border = "1px solid green"
+        dataNasc.style.border = "1px solid"
         aux = true
     }else{
         dataNasc.style.border = "none"        
@@ -78,7 +78,7 @@ function guardarDisc(){
     }
 
     Turmaaaa.addDisciplina(nome.value, docente.value)
-    Turmaaaa.showDisciplinas()
+    Turmaaaa.showDisciplina()
     docente.value = ""
     
 

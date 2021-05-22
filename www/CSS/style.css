@@ -99,8 +99,6 @@ body{
 }
 
 /*////////////////__Index/gestão page*/
-
-
 .coluna 
 {
     float: left;
@@ -121,7 +119,6 @@ body{
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content {
   background-color: #212121;
@@ -130,7 +127,6 @@ body{
   border: 1px solid #888;
   width: 80%;
 }
-
 /* The Close Button */
 .close {
   color: #aaaaaa;
@@ -144,4 +140,24 @@ body{
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/*///////////////_table Stlye_FOR ALL SHOW-TABLE*/
+table {
+  border-collapse: solid;
+  width: 90%;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even){background-color: #414040}
+th {
+  background-color: #6d6060;
+  color: white;
+}
+td {
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
 }
