@@ -99,19 +99,11 @@ body{
 }
 
 /*////////////////__Index/gestão page*/
-#myBtn3{
-  background-color: #4b4d4a;
-  
-}
 
 img, a {
   cursor: pointer;
   padding: 10px 15px;
 }
-
-
-
-
 
 /*//////////////_Modal*/
 .modal {

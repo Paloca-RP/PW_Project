@@ -12,8 +12,13 @@ window.addEventListener('load', function(){
         for(let disciplina of aux1.disciplina){
             Turmaaaa.addDisciplina(disciplina.nome, disciplina.docente)
         }
+        for(let inscricao of aux1.inscricao){
+            Turmaaaa.addInscricao(inscricao.disciplinaID, inscricao.alunoID, inscricao.nota)
+        }
+
         Turmaaaa.showAlunos()
         Turmaaaa.showDisciplina()
+        Turmaaaa.showInscricoesDisc()
     }else{
         Turmaaaa = new Turma("TPSI-02", 2020, "Paula Miranda", "paulamiranda@ips.pt", "PMiranda-jpg");
         Turmaaaa.addAluno("Ricardo Palhoça","06/02/2002","Masculino","rpalhoca@ip.pt","Paloca.png");
@@ -26,6 +31,7 @@ window.addEventListener('load', function(){
 
         Turmaaaa.showAlunos();
         Turmaaaa.showDisciplina();
+        Turmaaaa.showInscricoesDisc()
     }
 })
 

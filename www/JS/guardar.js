@@ -20,6 +20,21 @@ function guardarDisc(){
 
     Turmaaaa.addDisciplina(nome.value, docente.value)
     Turmaaaa.showDisciplina()
+    nome.value = ""
     docente.value = ""
     
+}
+
+
+function guardar_DIC_ALUN(){
+    var disciplinaID = document.getElementById('disciplinaID')
+    var alunoID = document.getElementById('alunoID')
+    var nota = document.getElementById('nota')
+
+    Turmaaaa.addInscricao(disciplinaID.value, alunoID.value, nota.value)
+    Turmaaaa.showInscricoesDisc()
+
+    disciplinaID.value = ""
+    alunoID.value = ""
+    nota.value = ""
 }

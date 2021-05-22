@@ -23,33 +23,12 @@
 
 
 
-  <h3>Turma:TPSI_02 - Ano:2020/2022 - Docente Responsável: Paula Miranda</h3>
+  <h3>Turma:TPSI</h3>
   
 <br>
 
-<!------------------------------------------------------------------------------------------------------->
 
- <a id="myBtn3" >Adicionar Aluno à Disciplina </a>
- <div class="modal fade" id="myModal3" role="dialog">
-   <div class="modal-dialog">
-   
-     <!-- Modal content-->
-     <div class="modal-content">
-       <div class="modal-header">
-         <h4 class="modal-title">Adicionar alunos nas disciplinas</h4>
-       </div>
-       <div class="modal-body">
-         <h1>Adicionar alunos nas disciplinas</h1>
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
-       </div>
-     </div>
-     
-   </div>
- </div>
-  
-  <br><br>
+
 
   <!------------------------------------------------------------------------------------------------------->
   
@@ -135,6 +114,52 @@
   <br><br>
 
   <!------------------------------------------------------------------------------------------------------->
+  <fieldset>
+    <legend>Adicionar alunos nas disciplinas</legend>
+    <div id="insert_ALU_DIC"></div>
+    <br>
+    <button type="button" id="myBtn3"><img src="Images/add_modall.png" alt="add_aluno"></button><br><br>
+   
+   <div class="modal fade" id="myModal3" role="dialog">
+     <div class="modal-dialog">
+     
+       <!-- Modal content-->
+       <div class="modal-content">
+         <div class="modal-header">
+           <h4 class="modal-title">Adicionar alunos nas disciplinas</h4>
+         </div>
+         <div class="modal-body">
+          <fieldset><br>
+            <label for="disciplina">ID_Disciplina: <input type="text" id="disciplinaID"></label>
+            <br><br>
+            <label for="aluno">ID_Aluno: <input type="text" id="alunoID"></label>
+            <br><br>
+            <label for="nota">Nota(s): <input type="text" id="nota"></label>
+            <br><br><button onclick="guardar_DIC_ALUN()"><img src="Images/add_modall.png" alt="add"></button><br><br>
+          </fieldset>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+         </div>
+       </div>
+     </div>
+   </div>
+  </fieldset>
+  
+
+ <br><br>
+ <br><br>
+ <br><br>
+ <br><br>
+<!------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
