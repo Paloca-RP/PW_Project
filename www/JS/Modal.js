@@ -6,6 +6,6 @@ $(document).ready(function(){
     $("#myModal2").modal({backdrop: true});
   });
   $("#myBtn3").click(function(){
-    $("#myModal").modal({backdrop: true});
+    $("#myModal3").modal({backdrop: true});
   });
 });

@@ -99,11 +99,19 @@ body{
 }
 
 /*////////////////__Index/gestão page*/
-.coluna 
-{
-    float: left;
-    padding: 100px 35px;
+#myBtn3{
+  background-color: #4b4d4a;
+  
 }
+
+img, a {
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+
+
+
 
 /*//////////////_Modal*/
 .modal {
@@ -145,16 +153,17 @@ body{
 /*///////////////_table Stlye_FOR ALL SHOW-TABLE*/
 table {
   border-collapse: solid;
-  width: 90%;
+  width: 100%;
 }
 th, td {
-  text-align: left;
-  padding: 8px;
+  text-align: center;
+  padding: 5px;
 }
 tr:nth-child(even){background-color: #414040}
 th {
   background-color: #6d6060;
   color: white;
+  text-align: center;
 }
 td {
   height: 30px;

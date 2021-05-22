@@ -18,88 +18,123 @@
     </nav>
   </header>
 <br>
+
+<!------------------------------------------------------------------------------------------------------->
+
+
+
+  <h3>Turma:TPSI_02 - Ano:2020/2022 - Docente Responsável: Paula Miranda</h3>
+  
 <br>
 
-  <button>Inscrever Aluno em Disciplina</button> <h3>Turma:TPSI 02 Ano:2020/2022 - Docente Responsável: Paula Miranda</h3>
+<!------------------------------------------------------------------------------------------------------->
 
+ <a id="myBtn3" >Adicionar Aluno à Disciplina </a>
+ <div class="modal fade" id="myModal3" role="dialog">
+   <div class="modal-dialog">
+   
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <h4 class="modal-title">Static Backdrop</h4>
+       </div>
+       <div class="modal-body">
+         <h1>Adicionar alunos nas disciplinas</h1>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+       </div>
+     </div>
+     
+   </div>
+ </div>
+  
   <br><br>
 
-  <div class="linha">
-    <div class="coluna">
-      <p>Aluno</p><div id="Insert_alunos"></div>
-      <!--Modal para inserir alunos-->
-      <button type="button" class="btn btn-info btn-md" id="myBtn"><img src="Images/add_aluno.png" alt="add_aluno"></button>
+  <!------------------------------------------------------------------------------------------------------->
+  
+  <fieldset>
+    <legend>Alunos</legend>
+
+    <div id="Insert_alunos"></div><br>
+
+  <!--Modal para inserir alunos-->
+      <button type="button" id="myBtn"><img src="Images/add_modall.png" alt="add_aluno"></button><br><br>
       
       <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">          
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">                
-                <h4 class="modal-title">Aluno</h4>
-              </div>
-              <div class="modal-body">
-                <fieldset><br>
-                  <label for="Nome">Nome: <input type="text" id="nome"></label>
-                  <br><br>
-                  <label for="dataNasc">Data Nascimento: <input type="date" id="dataNasc"></label>
-                  <br><br>
-                  <label for="genero">Genero: <input type="text" id="genero"></label>
-                  <br><br>
-                  <label for="email">Email: <input type="text" id="email"></label>
-                  <br><br>
-                  <label for="foto">Foto: <input type="text" id="foto"></label>
-                  <br><br>
-                  <button onclick="guardarAluno()"><img src="Images/add_modall.png" alt="add"></button>     
-                  <br><br>
-                </fieldset>
-              </div>
-              <div class="modal-footer">
-                <br>
-                <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-    
-
-  <br><br>
-
-
-  <div class="linha">
-    <div class="coluna">
-      <p>Disciplina</p>
-      <div id="Insert_Disc"></div>
-
-      <br>  <!--Modal para inserir Disciplinas-->  
-      <button id="myBtn2"><img src="Images/disciplina.png" alt=""></button>
-      <div class="modal fade" id="myModal2" role="dialog">
-        <div class="modal-dialog">        
+        <div class="modal-dialog">          
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Disciplinas</h4>
+            <div class="modal-header">                
+              <h4 class="modal-title">Aluno</h4>
             </div>
             <div class="modal-body">
-              <fieldset><br>      
-                <label for="Nome">Disciplina: <input type="text" id="nome"></label>
+              <fieldset><br>
+                <label for="Nome">Nome: <input type="text" id="nome"></label>
                 <br><br>
-                <label for="docente">Docente: <input type="text" id="docente"></label>
-                <br><br>    
-                <button onclick="guardarDisc()"><img src="Images/add_modall.png" alt="add"></button>   <br>  <br>
+                <label for="dataNasc">Data Nascimento: <input type="date" id="dataNasc"></label>
+                <br><br>
+                <label for="genero">Genero: <input type="text" id="genero"></label>
+                <br><br>
+                <label for="email">Email: <input type="text" id="email"></label>
+                <br><br>
+                <label for="foto">Foto: <input type="text" id="foto"></label>
+                <br><br>
+                <button onclick="guardarAluno()"><img src="Images/add_modall.png" alt="add"></button>     
+                <br><br>
               </fieldset>
             </div>
             <div class="modal-footer">
               <br>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
             </div>
-          </div>          
+          </div>
         </div>
       </div>
+  </fieldset>
+
+  <br>
+
+  <!------------------------------------------------------------------------------------------------------->
+  
+  <fieldset>
+    <legend>Disciplinas</legend>
+
+    <div id="Insert_Disc"></div>
+  
+    <br>  <!--Modal para inserir Disciplinas-->  
+    
+      <button id="myBtn2"><img src="Images/add_modall.png" alt="add_disciplina"></button><br><br>
+  
+    <div class="modal fade" id="myModal2" role="dialog">
+      <div class="modal-dialog">        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Disciplinas</h4>
+          </div>
+          <div class="modal-body">
+            <fieldset><br>      
+              <label for="Nome">Disciplina: <input type="text" id="nome"></label>
+              <br><br>
+              <label for="docente">Docente: <input type="text" id="docente"></label>
+              <br><br>    
+              <button onclick="guardarDisc()"><img src="Images/add_modall.png" alt="add"></button>   <br>  <br>
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <br>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>          
+      </div>
     </div>
-  </div>
+  </fieldset>
+  
+  <br><br>
+
+  <!------------------------------------------------------------------------------------------------------->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -110,144 +145,3 @@
   <script src="JS/Ini.js"></script>
 </body>
 </html>
-
-<!--Exemplo do varela
-showAlunos()
-    {
-        //Limpar div
-        while(document.getElementById('alunos').firstChild)
-        {
-            document.getElementById('alunos').removeChild(document.getElementById('alunos').firstChild);
-        }
-
-        var tabela = document.createElement("table");
-        tabela.className = "tableAlunos";
-
-        var thead = document.createElement("thead");
-        tabela.appendChild(thead);
-
-        var row = document.createElement("tr");
-        thead.appendChild(row);
-
-        var th = document.createElement("th");
-        th.appendChild(document.createTextNode("ID"));
-        //th.setAttribute("style", "display: none;");
-        row.appendChild(th);
-
-        var th = document.createElement("th");
-        th.appendChild(document.createTextNode("Nome"));
-        row.appendChild(th);
-
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Data Nascimento"));
-        row.appendChild(th);
-
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Género"));
-        row.appendChild(th);
-
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("E-mail"));
-        row.appendChild(th);
-
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Foto"));
-        row.appendChild(th);
-
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Editar"));
-        row.appendChild(th);
-
-        th = document.createElement("th");
-        th.appendChild(document.createTextNode("Apagar"));
-        row.appendChild(th);
-
-        var tbody = document.createElement("tbody");
-        tabela.appendChild(tbody);
-
-        for(let alu of this.studentsList)
-        {
-            var row = document.createElement("tr");
-            tbody.appendChild(row);
-
-            var td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.id));
-            //td.setAttribute("style", "display: none;");
-            row.appendChild(td);
-
-            var td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.nome));
-            row.appendChild(td);
-
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.dataNascimento));
-            row.appendChild(td);
-
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.genero));
-            row.appendChild(td);
-
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.email));
-            row.appendChild(td);
-
-            td = document.createElement("td");
-            td.appendChild(document.createTextNode(alu.foto));
-            row.appendChild(td);
-
-            //Icon de editar
-            td = document.createElement("td");
-            row.appendChild(td);
-
-            var imgedit = document.createElement("img");
-            imgedit.src="assets/img/user-edit.png";
-            td.appendChild(imgedit);
-            td = document.createElement("td");
-
-            var modalEdit = document.getElementById('editAlunoModal');
-            var modalClose = document.querySelector('.modal-close');
-
-            imgedit.onclick = function(){
-                var $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function(){
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#EditIdAluno').val(data[0]);
-                $('#EditNomeAluno').val(data[1]);
-                $('#EditDataNascAluno').val(data[2]);
-                $('#EditGeneroAluno').val(data[3]);
-                $('#EditEmailAluno').val(data[4]);
-                $('#EditFotoAluno').val(data[5]);
-            
-                modalEdit.style.visibility = 'visible';
-                modalEdit.style.opacity = "1";
-            };
-
-            modalClose.addEventListener('click', function(){
-                modalEdit.style.visibility = 'hidden';
-                modalEdit.style.opacity = "0";
-            });
-
-            var imgdelete = document.createElement("img");
-            imgdelete.src="assets/img/user-delete.png";
-            row.appendChild(td);
-            td.appendChild(imgdelete);
-
-            imgdelete.onclick = function(){
-                var $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function(){
-                    return $(this).text();
-                }).get();
-
-                TurmA.deleteAluno(data[0]);
-            };
-        }
-
-        document.getElementById('alunos').appendChild(tabela);
-    }
--->
