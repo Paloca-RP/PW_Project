@@ -125,6 +125,11 @@ class Turma{
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
     showAlunos(){ //Lista os alunos
 
+        /*const apagarBtn = document.createElement('button');
+        apagarBtn.className = "apagar";
+        apagarBtn.type = "button";
+        apagarBtn.innerHTML = "&times;";*/
+
         //Limpar div
         while(document.getElementById('Insert_alunos').firstChild){
             document.getElementById('Insert_alunos').removeChild(document.getElementById('Insert_alunos').firstChild)
@@ -193,7 +198,7 @@ class Turma{
             row.appendChild(td)
 
             td = document.createElement("td")
-            td.appendChild(document.createTextNode(alu.dataNascimento))
+            td.appendChild(document.createTextNode(alu.dataNasc))
             row.appendChild(td)
 
             td = document.createElement("td")
@@ -206,7 +211,11 @@ class Turma{
 
             td = document.createElement("td")
             td.appendChild(document.createTextNode(alu.foto))
-            row.appendChild(td); 
+            row.appendChild(td);
+            
+            /*td = document.createElement("td");
+            row.appendChild(td);
+            td.appendChild(document.append(apagarBtn));*/
             
         }
         document.getElementById('Insert_alunos').appendChild(tabela)
@@ -254,6 +263,9 @@ class Turma{
             td = document.createElement("td");
             row.appendChild(td);
             td.appendChild(document.createTextNode(disciplinas.docente));
+            td = document.createElement("td");
+            row.appendChild(td);
+            td.appendChild(document.createTextNode("&times;"));
         }
 
         document.getElementById('Insert_Disc').appendChild(table)
