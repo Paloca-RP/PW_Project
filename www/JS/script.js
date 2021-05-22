@@ -98,18 +98,7 @@ class Turma{
                 this.aluno.splice(index, 1);
             index++;
         }
-        Turma.aluno.tabela('Insert_alunos');
-        
-        
-        
-        /*let contador = 0;
-        for(let aluno of this.aluno){
-            if(aluno.id == id){
-                this.aluno.splice(contador, 1);
-            }
-            contador++;
-        }*/
-
+        localStorage.setItem('turma', JSON.stringify(Turmaaaa))        
     }
 
     removeDisciplina(id){
@@ -120,103 +109,80 @@ class Turma{
             }
             contador++;
         }
+        localStorage.setItem('turma', JSON.stringify(Turmaaaa))
     }
 
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
     showAlunos(){ //Lista os alunos
 
-        /*const apagarBtn = document.createElement('button');
-        apagarBtn.className = "apagar";
-        apagarBtn.type = "button";
-        apagarBtn.innerHTML = "&times;";*/
-
-        //Limpar div
         while(document.getElementById('Insert_alunos').firstChild){
             document.getElementById('Insert_alunos').removeChild(document.getElementById('Insert_alunos').firstChild)
         }
-
-
         var tabela = document.createElement("table")
-        tabela.className = "tableAlunos"
-
+            tabela.className = "tableAlunos"
         var thead = document.createElement("thead")
         tabela.appendChild(thead)
-
         var row = document.createElement("tr")
-        thead.appendChild(row)
-
+            thead.appendChild(row)
         var th = document.createElement("th")
         th.appendChild(document.createTextNode("ID"))
-        row.appendChild(th)
-
+            row.appendChild(th)
         var th = document.createElement("th")
         th.appendChild(document.createTextNode("Nome"))
-        row.appendChild(th)
-
+            row.appendChild(th)
         th = document.createElement("th")
         th.appendChild(document.createTextNode("Data Nascimento"))
-        row.appendChild(th)
-
+            row.appendChild(th)
         th = document.createElement("th")
         th.appendChild(document.createTextNode("Género"))
-        row.appendChild(th)
-
+            row.appendChild(th)
         th = document.createElement("th")
         th.appendChild(document.createTextNode("E-mail"))
-        row.appendChild(th)
-
+            row.appendChild(th)
         th = document.createElement("th")
         th.appendChild(document.createTextNode("Foto"))
-        row.appendChild(th)
-
-        // Botão de apagar
+            row.appendChild(th)
         th = document.createElement("th")
         th.appendChild(document.createTextNode("Apagar"))
-       
-        row.appendChild(th)
-        /*/botão de editar
-        
-         th = document.createElement("th")
-        th.appendChild(document.createTextNode("Editar"))
-        row.appendChild(th)
-        */
-
+            row.appendChild(th)       
         var tbody = document.createElement("tbody")
         tabela.appendChild(tbody)
 
+        var turmaa = this
         for(let alu of this.aluno){
             var row = document.createElement("tr")
             var td = document.createElement("td")
-
-            tbody.appendChild(row)
             
+            //
+            var btn = document.createElement("button")            
+            btn.innerHTML = "<img src='Images/apagar.png' alt='add'>"           
+            btn.onclick = function(){//função anonima              
+                console.log(alu.id)
+                turmaa.removeAluno(alu.id) 
+                turmaa.showAlunos()
+            }
+            
+            tbody.appendChild(row)
             td.appendChild(document.createTextNode(alu.id))
             row.appendChild(td)
-
             td = document.createElement("td")
             td.appendChild(document.createTextNode(alu.nome))
             row.appendChild(td)
-
             td = document.createElement("td")
             td.appendChild(document.createTextNode(alu.dataNasc))
             row.appendChild(td)
-
             td = document.createElement("td")
             td.appendChild(document.createTextNode(alu.genero))
             row.appendChild(td)
-
             td = document.createElement("td")
             td.appendChild(document.createTextNode(alu.email))
             row.appendChild(td)
-
             td = document.createElement("td")
             td.appendChild(document.createTextNode(alu.foto))
-            row.appendChild(td);
-            
-            /*td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.append(apagarBtn));*/
-            
+            row.appendChild(td)           
+            td = document.createElement("td");
+            row.appendChild(td)
+            td.appendChild(btn)
         }
         document.getElementById('Insert_alunos').appendChild(tabela)
 
@@ -225,10 +191,10 @@ class Turma{
         while(document.getElementById('Insert_Disc').firstChild){
             document.getElementById('Insert_Disc').removeChild(document.getElementById('Insert_Disc').firstChild)
         }
-        var table = document.createElement("table");
-        table.className = "table";
+        var tabela = document.createElement("table");
+        tabela.className = "table";
         var thead = document.createElement("thead");
-        table.append(thead);
+        tabela.append(thead);
         var row = document.createElement("tr");
         thead.appendChild(row);
         var th = document.createElement("th");
@@ -247,28 +213,35 @@ class Turma{
         row.appendChild(th)
         
         var tbody = document.createElement("tbody");
-        table.appendChild(tbody);
+        tabela.appendChild(tbody);
 
-        for(let disciplinas of this.disciplina){
+        var turma = this
+        for(let disciplina of this.disciplina){
             var row = document.createElement("tr");
-            var td = document.createElement("td");
+            var td = document.createElement("td");           
+            var btn = document.createElement("button")
+            
+            btn.innerHTML = "<img src='Images/apagar.png' alt='add'>"
+           
+            btn.onclick = function(){//função anonima              
+                turma.removeDisciplina(disciplina.id) 
+                turma.showDisciplina()
+            }
             tbody.appendChild(row);
-          
-
             row.appendChild(td);
-            td.appendChild(document.createTextNode(disciplinas.id));
+            td.appendChild(document.createTextNode(disciplina.id));
             td = document.createElement("td");
             row.appendChild(td);
-            td.appendChild(document.createTextNode(disciplinas.nome));
+            td.appendChild(document.createTextNode(disciplina.nome));
             td = document.createElement("td");
             row.appendChild(td);
-            td.appendChild(document.createTextNode(disciplinas.docente));
+            td.appendChild(document.createTextNode(disciplina.docente));
+            
             td = document.createElement("td");
-            row.appendChild(td);
-            td.appendChild(document.createTextNode("&times;"));
+            row.appendChild(td)
+            td.appendChild(btn)
         }
-
-        document.getElementById('Insert_Disc').appendChild(table)
+        document.getElementById('Insert_Disc').appendChild(tabela)
 
     }
     

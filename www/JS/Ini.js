@@ -12,12 +12,9 @@ window.addEventListener('load', function(){
         for(let disciplina of aux1.disciplina){
             Turmaaaa.addDisciplina(disciplina.nome, disciplina.docente)
         }
-
         Turmaaaa.showAlunos()
         Turmaaaa.showDisciplina()
-               
     }else{
-        
         Turmaaaa = new Turma("TPSI-02", 2020, "Paula Miranda", "paulamiranda@ips.pt", "PMiranda-jpg");
         Turmaaaa.addAluno("Ricardo Palhoça","06/02/2002","Masculino","rpalhoca@ip.pt","Paloca.png");
         Turmaaaa.addAluno("Pedro Serpe","20/06/2001","Masculino","serpe@estudantes.ips.pt","serpe.png");
