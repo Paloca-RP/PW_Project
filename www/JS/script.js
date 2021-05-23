@@ -92,7 +92,7 @@ class Turma{
         }
     }
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
-    editAluno(nome, dataNasc, genero, email, foto){
+    /*editAluno(nome, dataNasc, genero, email, foto){
         
         var verificacao = false;
         for(var i=0;i<this.aluno.length;i++){
@@ -133,7 +133,7 @@ class Turma{
                 }
             } 
         }
-    }
+    }*/
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
     removeAluno(id){
         let index = 0
