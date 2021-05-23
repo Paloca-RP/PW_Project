@@ -12,6 +12,7 @@ function guardarAluno(){
     genero.value = ""
     email.value = ""
     foto.value = "" 
+    alert("Inserido com Sucesso !!")
 }
 
 function guardarDisc(){
@@ -22,7 +23,7 @@ function guardarDisc(){
     Turmaaaa.showDisciplina()
     nome.value = ""
     docente.value = ""
-    
+    alert("Inserido com Sucesso !!")
 }
 
 
