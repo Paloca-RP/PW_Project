@@ -72,21 +72,54 @@ class Turma{
             localStorage.setItem('turma', JSON.stringify(Turmaaaa))     
         }
     }
-/*///////////////////////////////////////////////////////////////////////////////////////////// 
-    editAluno(id, atribute, value){
-        if(!value){
-            throw "Dado(s) inválidos!";
-        }else{
-            for(var i = 0; i < this.aluno.length; i++){
-                if(this.aluno[i].id == id){
-                    this.aluno[i][atribute] = value
-                    alert("O aluno com o ID: " + i + " teve o Atributo: " + atribute + " alterado para: " + value + ".")
-                }else{
-                    throw "Aluno não encontrado!"
+    removeInscricao(dicID, alunoID){
+        var verificacao = false
+        for(var i=0;i<this.inscricao.length;i++){
+            if(this.inscricao[i].aluno_ID == alunoID){    
+               if(this.inscricao[i].disciplina_ID == dicID){
+                    verificacao = true
+                    break
                 }
-            } 
-        }    
+            }
+        }
+        if(verificacao == true){
+
+            this.inscricao.splice(i, 1)
+            localStorage.setItem('turma', JSON.stringify(Turmaaaa))
+            
+        }else{
+           alert("O aluno nao esta inscrito na disciplina !!")
+        }
     }
+/*///////////////////////////////////////////////////////////////////////////////////////////// */
+    editAluno(nome, dataNasc, genero, email, foto){
+        
+        var verificacao = false;
+        for(var i=0;i<this.aluno.length;i++){
+            if(this.aluno[i].id = alunoID){
+                if(!nome || !dataNasc || !genero || !email || !foto)
+                    alert("Dado(s) inválidos!")
+                else if(/[0-9]/.test(nome)||/[0-9]/.test(genero))
+                    alert("Em nome e Genero não são aceites valorers de tipo numérico!")
+                else{
+                    nome = StringNome(nome)
+                    this.aluno[i].nome = nome;
+                    this.aluno[i].dataNasc = dataNasc;
+                    this.aluno[i].genero = genero;
+                    this.aluno[i].email = email;
+                    this.aluno[i].foto = foto;
+                    localStorage.setItem('turma', JSON.stringify(Turmaaaa))//a key tem de ser sempre igual
+                    console.log(this.aluno[i]);
+                    alert("Aluno atualizado com sucesso!");
+                verificacao = true
+                break;
+                }
+                if(verificacao == true){
+                alert("Não existe nenhum aluno com esse id !!")
+                }
+            }
+        }
+    }   
     editDisciplina(id, atribute, value){
         if(!value){
             throw "Dado(s) inválidos!"
@@ -94,7 +127,7 @@ class Turma{
             for(var i = 0; i<this.disciplina.length; i++){
                 if(this.disciplina[i].id == id){
                     this.disciplina[i][atribute] = value
-                    alert("O aluno com o ID: " + i + " teve o atributo: " + atribute + " alterado para: " + value + "!")
+                    alert("A disciplina com o ID: " + i + " teve o atributo: " + atribute + " alterado para: " + value + "!")
                 } else {
                     throw "Disciplina não encontrada!"
                 }
@@ -152,15 +185,15 @@ class Turma{
             row.appendChild(th)
         th = document.createElement("th")
         th.appendChild(document.createTextNode("Apagar"))
-            row.appendChild(th)       
+            row.appendChild(th) 
         var tbody = document.createElement("tbody")
         tabela.appendChild(tbody)
         var turmaa = this
         for(let alu of this.aluno){
             var row = document.createElement("tr")
             var td = document.createElement("td")
-            var btn = document.createElement("button")            
-            btn.innerHTML = "<img src='Images/apagar.png' alt='add'>"           
+            var btn = document.createElement("button")         
+            btn.innerHTML = "<img src='Images/apagar.png' alt='add'>"          
             btn.onclick = function(){//função anonima              
                 console.log(alu.id)
                 turmaa.removeAluno(alu.id) 
@@ -211,7 +244,7 @@ class Turma{
         th.appendChild(document.createTextNode("Docente"))  
         th = document.createElement("th")
         th.appendChild(document.createTextNode("Apagar"))
-        row.appendChild(th)        
+        row.appendChild(th)   
         var tbody = document.createElement("tbody")
         tabela.appendChild(tbody)
         var turma = this
@@ -219,7 +252,7 @@ class Turma{
             var row = document.createElement("tr")
             var td = document.createElement("td")        
             var btn = document.createElement("button")            
-            btn.innerHTML = "<img src='Images/apagar.png' alt='add'>"           
+            btn.innerHTML = "<img src='Images/apagar.png' alt='add'>"   
             btn.onclick = function(){//função anonima              
                 turma.removeDisciplina(disciplina.id) 
                 turma.showDisciplina()

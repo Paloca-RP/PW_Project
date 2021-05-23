@@ -36,7 +36,8 @@
     <div id="Insert_alunos"></div><br>
 
   <!--Modal para inserir alunos-->
-      <button type="button" id="myBtn"><img src="Images/add_modall.png" alt="add_aluno"></button><br><br>
+      <button type="button" id="myBtn"><img src="Images/add_modall.png" alt="add_aluno"></button>
+      <button type="button" id="myBtnEditAln"><img src="Images/editar.png" alt="edit_aluno"></button><br><br>
       
       <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
@@ -71,6 +72,41 @@
       </div>
   </fieldset>
 
+  <!-- Modal de edição de aluno -->
+  <div class="modal fade" id="myModalEditAluno" role="dialog">
+    <div class="modal-dialog">          
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">                
+          <h4 class="modal-title">Aluno</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset><br>
+            <label for="aluno">Id: <input type="text" id="alunoID"></label>
+            <br><br>
+            <label for="Nome">Nome: <input type="text" id="nome" required></label>
+            <br><br>
+            <label for="dataNasc">Data Nascimento: <input type="date" id="dataNasc" required></label>
+            <br><br>
+            <label for="genero">Genero: <input type="text" id="genero" required></label>
+            <br><br>
+            <label for="email">Email: <input type="text" id="email" required></label>
+            <br><br>
+            <label for="foto">Foto: <input type="text" id="foto" required></label>
+            <br><br>
+            <button onclick="guardarEditAluno()"><img src="Images/editar.png" alt="add"></button>     
+            <br><br>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+          <br>
+          <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
   <br>
 
   <!------------------------------------------------------------------------------------------------------->
@@ -82,7 +118,8 @@
   
     <br>  <!--Modal para inserir Disciplinas-->  
     
-      <button id="myBtn2"><img src="Images/add_modall.png" alt="add_disciplina"></button><br><br>
+      <button id="myBtn2"><img src="Images/add_modall.png" alt="add_disciplina"></button>
+      <button type="button" id="myBtnEditDisc"><img src="Images/editar.png" alt="edit_aluno"></button><br><br>
   
     <div class="modal fade" id="myModal2" role="dialog">
       <div class="modal-dialog">        
@@ -108,6 +145,32 @@
       </div>
     </div>
   </fieldset>
+
+  <!-- Modal de edição de disciplina -->
+  <div class="modal fade" id="myModalEditDisc" role="dialog">
+    <div class="modal-dialog">        
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Disciplinas</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset><br>      
+            <label for="Nome">Disciplina: <input type="text" id="disciplina"></label>
+            <br><br>
+            <label for="docente">Docente: <input type="text" id="docente"></label>
+            <br><br>    
+            <button onclick="guardarDisc()"><img src="Images/editar.png" alt="add"></button>   <br>  <br>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+          <br>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>          
+    </div>
+  </div>
+</fieldset>
   
   <br><br>
 
