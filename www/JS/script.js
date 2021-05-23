@@ -1,9 +1,8 @@
 //js da navbar
 function openNav() {
     document.getElementById("navbar").style.width = "100%";
-  }
-  
-  function closeNav() {
+  }  
+function closeNav() {
     document.getElementById("navbar").style.width = "0%";
   }
 //---------------------------------------------------------------  
@@ -17,7 +16,6 @@ function AutoID(arrays){
     mx++
     return mx++
 }
-
 class Turma{
     constructor (nome, ano, responsavel, emailResponsavel, curso){
         this.nome = nome
@@ -270,8 +268,7 @@ class Turma{
         th.appendChild(document.createTextNode("Foto"))
             row.appendChild(th)
         var tbody = document.createElement("tbody")
-        tabela.appendChild(tbody)
-        
+        tabela.appendChild(tbody)        
         for(let alu of this.aluno){
             var row = document.createElement("tr")
             var td = document.createElement("td")
@@ -319,8 +316,6 @@ class Turma{
         th.appendChild(document.createTextNode("Docente"))        
         var tbody = document.createElement("tbody")
         tabela.appendChild(tbody)
-
-        
         for(let disciplina of this.disciplina){
             
             var row = document.createElement("tr")
@@ -345,9 +340,7 @@ class Turma{
                     }
                 }
             }
-
-            var td = document.createElement("td")        
-           
+            var td = document.createElement("td")   
             tbody.appendChild(row)
             row.appendChild(td)
             td.appendChild(document.createTextNode(disciplina.id))
@@ -361,12 +354,6 @@ class Turma{
         }
         document.getElementById('Insert_Disc1').appendChild(tabela)
     }
-
-    inspecionarDisciplina(){
-
-    }
-
-
 }
 /*///////////////////////////////////////////////////////////////////////////////////////////// */
 class Aluno{
@@ -409,5 +396,3 @@ function StringDocente(docente){
         splitNome[i] = splitNome[i].charAt(0).toUpperCase() + splitNome[i].substring(1) 
     return splitNome.join(' ')
 }
-
-
