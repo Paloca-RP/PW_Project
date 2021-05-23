@@ -1,3 +1,12 @@
+//js da navbar
+function openNav() {
+    document.getElementById("navbar").style.width = "100%";
+  }
+  
+  function closeNav() {
+    document.getElementById("navbar").style.width = "0%";
+  }
+//---------------------------------------------------------------  
 function AutoID(arrays){
     let mx = -1
     for(let some of arrays) {
