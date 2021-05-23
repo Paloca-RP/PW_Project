@@ -19,13 +19,13 @@ window.addEventListener('load', function(){
         Turmaaaa.showAlunos()
         Turmaaaa.showDisciplina()
     }else{
-        Turmaaaa = new Turma("TPSI-02", 2020, "Paula Miranda", "Mirandinha@ips.pt", "PMiranda-jpg");
-        Turmaaaa.addAluno("Ricardo Palhoça","06/02/2002","Masculino","rpalhoca@ip.pt","Paloca.png");
-        Turmaaaa.addAluno("Pedro Serpe","20/06/2001","Masculino","serpe@estudantes.ips.pt","serpe.png");
-        Turmaaaa.addDisciplina("Programação Web","José Bento");
-        Turmaaaa.addDisciplina("Elementos de Matematica II","Paula Reis");
+        Turmaaaa = new Turma("TPSI-02", 2020, "Paula Miranda", "Mirandinha@ips.pt", "PMiranda-jpg")
+        Turmaaaa.addAluno("Ricardo Palhoça","06/02/2002","Masculino","rpalhoca@ip.pt","Paloca.png")
+        Turmaaaa.addAluno("Pedro Serpe","20/06/2001","Masculino","serpe@estudantes.ips.pt","serpe.png")
+        Turmaaaa.addDisciplina("Programação Web","José Bento")
+        Turmaaaa.addDisciplina("Elementos de Matematica II","Paula Reis")
         console.log(Turmaaaa.aluno)
-        localStorage.setItem("turma",JSON.stringify(Turmaaaa));
+        localStorage.setItem("turma",JSON.stringify(Turmaaaa))
 
         Turmaaaa.showAlunos();
         Turmaaaa.showDisciplina();
