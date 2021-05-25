@@ -31,8 +31,3 @@ window.addEventListener('load', function(){
         Turmaaaa.showDisciplina();
     }
 })
-
-
-
-
-
