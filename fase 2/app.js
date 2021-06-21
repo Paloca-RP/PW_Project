@@ -7,12 +7,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("www"));
 
-// People
-app.get("/person", requestHandlers.getPeople);
+// Alunos
+app.get("/alunos", requestHandlers.getAlunos);
 
-// Countries
+// Turma
 /** @todo Completar */
-app.get("/country", requestHandlers.getCountries);
+app.get("/turma", requestHandlers.getTurma);
+
+// Disciplina
+app.get("/disciplina", requestHandlers.getDisciplina)
 
 app.listen(8081, function () {
     console.log("Server running at http://localhost:8081");
