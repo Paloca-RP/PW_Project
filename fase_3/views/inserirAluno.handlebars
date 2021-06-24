@@ -1,0 +1,32 @@
+<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">          
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">                
+              <h4 class="modal-title">Aluno</h4>
+            </div>
+            <div class="modal-body">
+              <form action="/postAluno" method="POST">
+                <fieldset><br>
+                    <label for="Nome">Nome: <input type="text" id="nome" name="nome"></label>
+                    <br><br>
+                    <label for="dataNasc">Data Nascimento: <input type="date" id="dataNasc" name="dataNasc"></label>
+                    <br><br>
+                    <label for="genero">Genero: <input type="text" id="genero" name="genero"></label>
+                    <br><br>
+                    <label for="email">Email: <input type="text" id="email" name="email"></label>
+                    <br><br>
+                    <label for="foto">Foto: <input type="text" id="foto" name="foto"></label>
+                    <br><br>
+                    <button onclick="guardarAluno()"><img src="Images/add_modall.png" alt="add"></button>     
+                    <br><br>
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <br>
+              <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
