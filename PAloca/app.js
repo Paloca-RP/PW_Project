@@ -1,27 +1,80 @@
-const express = require('express')
-const path = require('path')
+var http = require("http")
+var url = require("url")
+var querystring = require("querystring")
+var path = require("path")
+var fs = require("fs")
 
-const app = express();
+var options = {
+    "default": {
+        "folder": "www",
+        "document": "index.html",
+        "port": 8081,
+        "favicon": "site.ico"
+    },
+    "extensions": {
+        "txt": "text/plain; charset=utf-8",
+        "htm": "text/html; charset=utf-8",
+        "html": "text/html; charset=utf-8",
+        "js": "application/javascript; charset=utf-8",
+        "json": "application/json; charset=utf-8",
+        "css": "text/css; charset=utf-8",
+        "gif": "image/gif",
+        "jpg": "image/jpg",
+        "png": "image/png",
+        "ico": "image/x-icon"
+    }
+}
 
-app.use(express.urlencoded({ extended : false}))
+function logOnDev(message) {
+    if (process.env.NODE_ENV === "development") {
+        console.log(message)
+    }
+}
 
-//ficheiros estaticos
-app.use(express.static(path.join(__dirname, 'public')))
+function router(request) {
+    var pathname = querystring.unescape(url.parse(request.url).pathname)
+    switch (pathname) {
+        case "/": pathname += options.default.document
+            break
+        case "/favicon.ico": pathname = options.default.favicon
+            break
+        default:
+            break
+    }
+    return pathname
+        ? path.join(__dirname, options.default.folder, pathname)
+        : null
+}
 
-//engine (View)
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
+function mimeType(filename) {
+    var extension = path.extname(filename)
+    if (extension.charAt(0) === ".") {
+        extension = extension.substr(1)
+    }
+    return options.extensions[extension]
+}
 
-//pagina index
-app.get('/', function(req, res) {
-    res.render('index')
-})
+http.createServer(function (request, response) {
+    logOnDev(`Request for ${request.url} received.`)
+    var filename = router(request);
+    logOnDev(`Filename ${filename}.`)
+    if (filename) {
+        
+        switch( filename ){
+            default:
+                fs.readFile(filename, function (err, data) {
+                    if (err) {
+                        logOnDev(err)
+                        response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" })
+                        response.write("HTTP Status: 404 : NOT FOUND");
+                    } else {
+                        response.writeHead(200, { "Content-Type": mimeType(filename) })
+                        response.write(data)
+                    }
+                    response.end()
+                })
+        }
+    }
+}).listen(options.default.port)
 
-//porta do server 
-app.listen(8081, () => {
-    console.log("Funciona na porta 8081")
-})
-
-module.exports = app
-
-//https://youtu.be/S-nC83myMIs?t=397
+logOnDev(`Server running at http://localhost:${options.default.port}/`)
