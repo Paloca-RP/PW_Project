@@ -1,4 +1,3 @@
-const { resolveSoa } = require("dns");
 const mysql = require("mysql");
 const options = require("./connection-options.json");
 
