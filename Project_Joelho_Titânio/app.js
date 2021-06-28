@@ -12,7 +12,7 @@ app.get("/getAluno/:aluno_id", requestHandlers.getAluno)
 app.get("/getTodosAlunos", requestHandlers.getTodosAlunos)
 app.get("/getDisciplina/:disc_id", requestHandlers.getDisciplina)
 app.get("/getTodasDisciplinas", requestHandlers.getTodasDisciplinas)
-app.get("/getInscricao/:fk_disciplina", requestHandlers.getIncricao)
+app.get("/getInscricao/:fk_disciplina", requestHandlers.getInscricao)
 app.get('/getTurma', requestHandlers.getTurma);
 /*-----------------------Insert-----------------------------------*/
 app.post("/postAluno/:aluno_nome/:aluno_dataNasc/:aluno_genero/:aluno_email/:aluno_foto", requestHandlers.postAluno)

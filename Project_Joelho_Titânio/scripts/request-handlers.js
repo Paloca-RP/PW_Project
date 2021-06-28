@@ -7,7 +7,7 @@ function openConnectionDB(option){
     return conn;
 }
 /*-----------------------SHOW-----------------------------------*/
-module.exports = function getAluno(request, response) {
+module.exports.getAluno = function (request, response) {
     //let con = openConnectionDB(conexao)
     var con = mysql.createConnection(conexao);
     con.connect();
@@ -23,7 +23,8 @@ module.exports = function getAluno(request, response) {
     })
     con.end();
 } 
-module.exports = function getTodosAlunos(request, response) {
+
+module.exports.getTodosAlunos = function (request, response) {
    //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -39,7 +40,7 @@ module.exports = function getTodosAlunos(request, response) {
     })
     con.end();
 }
-module.exports = function getDisciplina(request, response) {
+module.exports.getDisciplina = function (request, response) {
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -55,7 +56,7 @@ module.exports = function getDisciplina(request, response) {
     })
     con.end();
 } 
-module.exports = function getTodasDisciplinas(request, response) {
+module.exports.getTodasDisciplinas = function (request, response) {
     //let con = openConnectionDB(conexao)
     var con = mysql.createConnection(conexao);
     con.connect();
@@ -70,7 +71,7 @@ module.exports = function getTodasDisciplinas(request, response) {
     })
     con.end();
 }
-module.exports =  function getInscricao(request, response) {
+module.exports.getInscricao =  function (request, response) {
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -86,7 +87,7 @@ module.exports =  function getInscricao(request, response) {
     })
     con.end();
 }
-module.exports = function getTurma(request, response) {
+module.exports.getTurma = function (request, response) {
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -103,7 +104,7 @@ module.exports = function getTurma(request, response) {
     con.end();
 }
 /*-----------------------Insert-----------------------------------*/
-module.exports = function postAluno(request, response) {
+module.exports.postAluno = function (request, response) {
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -119,7 +120,7 @@ module.exports = function postAluno(request, response) {
     })
     con.end();
 } 
-module.exports = function postDisciplina(request, response) {//
+module.exports.postDisciplina = function (request, response) {//
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -135,7 +136,7 @@ module.exports = function postDisciplina(request, response) {//
     })
     con.end();
 } 
-module.exports = function postInscricao(request, response) {
+module.exports.postInscricao = function (request, response) {
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -152,7 +153,7 @@ module.exports = function postInscricao(request, response) {
     con.end();
 }
 /*-----------------------Delete-----------------------------------*/
-module.exports = function deleteAluno(request, response) {
+module.exports.deleteAluno = function (request, response) {
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
@@ -168,7 +169,7 @@ module.exports = function deleteAluno(request, response) {
     })
     con.end();
 }
-module.exports = function deleteDisciplina(request, response) {
+module.exports.deleteDisciplina = function (request, response) {
     //let con = openConnectionDB(conexao)
    var con = mysql.createConnection(conexao);
    con.connect();
