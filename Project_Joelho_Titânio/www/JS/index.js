@@ -1,7 +1,7 @@
-window.onload = function(event) {
-    getTodosAlunos();
-    getTodosDisciplinas();    
-    getTurma();
+window.onload = function() {
+    getTodosAlunos()
+    getTodosDisciplinas()  
+    getTurma()
 }
 
 function getTodosAlunos() {
