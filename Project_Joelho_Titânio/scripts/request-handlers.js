@@ -1,16 +1,14 @@
-const mysql = require("mysql");
-const conexao = require("./connection.json");
+const mysql = require("mysql")
+const conexao = require("./connection.json")
 
 function openConnectionDB(option){
-    let conn = mysql.createConnection(option);
-    conn.connect();
-    return conn;
+    let conn = mysql.createConnection(option)
+    conn.connect()
+    return conn
 }
 /*-----------------------SHOW-----------------------------------*/
 module.exports.getAluno = function (request, response) {
-    //let con = openConnectionDB(conexao)
-    var con = mysql.createConnection(conexao);
-    con.connect();
+    let con = openConnectionDB(conexao)
 
     var query = "select * from aluno where aluno_id = ?"
 
@@ -21,13 +19,10 @@ module.exports.getAluno = function (request, response) {
             response.json({"message": "success", "showaluno": rows })
         }
     })
-    con.end();
+    con.end()
 } 
-
 module.exports.getTodosAlunos = function (request, response) {
-   //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+    let con = openConnectionDB(conexao)
 
     var query = "select * from aluno"
 
@@ -38,15 +33,12 @@ module.exports.getTodosAlunos = function (request, response) {
             response.json({"message": "success", "showTodosAlunos": rows })
         }
     })
-    con.end();
+    con.end()
 }
 module.exports.getDisciplina = function (request, response) {
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+    let con = openConnectionDB(conexao)
    
-    var query = 
-        "select * from disciplina where disc_id = ?"
+    var query = "select * from disciplina where disc_id = ?"
     con.query(mysql.format(query, [request.params.disc_id]), function(err, rows) {
         if (err) {
             response.json({"message": "error", "error": err })
@@ -54,12 +46,11 @@ module.exports.getDisciplina = function (request, response) {
             response.json({"message": "success", "showdisciplina": rows })
         }
     })
-    con.end();
+    con.end()
 } 
 module.exports.getTodasDisciplinas = function (request, response) {
-    //let con = openConnectionDB(conexao)
-    var con = mysql.createConnection(conexao);
-    con.connect();
+    let con = openConnectionDB(conexao)
+
     var query = "select * from disciplina"
 
     con.query(query, function(err, rows) {
@@ -69,28 +60,23 @@ module.exports.getTodasDisciplinas = function (request, response) {
             response.json({"message": "success", "showTodasDisciplinas": rows })
         }
     })
-    con.end();
+    con.end()
 }
 module.exports.getInscricao =  function (request, response) {
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+   let con = openConnectionDB(conexao)
    
-    var query = 
-        "select fk_disciplina, fk_aluno from inscricao where fk_disciplina = ?"
+    var query = "select fk_disciplina, fk_aluno from inscricao where fk_disciplina = ?"
     con.query(mysql.format(query, [request.params.fk_disciplina]), function(err, rows) {
         if (err) {
             response.json({"message": "error", "error": err })
         } else {
-            res.json({"message": "success", "showinscricao": rows })
+            response.json({"message": "success", "showinscricao": rows })
         }
     })
-    con.end();
+    con.end()
 }
 module.exports.getTurma = function (request, response) {
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+    let con = openConnectionDB(conexao)
    
     var query = "select * from turma"
 
@@ -101,13 +87,11 @@ module.exports.getTurma = function (request, response) {
             response.json({"message": "success", "showturma": rows })
         }
     })
-    con.end();
+    con.end()
 }
 /*-----------------------Insert-----------------------------------*/
 module.exports.postAluno = function (request, response) {
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+    let con = openConnectionDB(conexao)
    
     var query = "insert into aluno values(null, ?, ?, ?, ?, ?)"
 
@@ -118,13 +102,13 @@ module.exports.postAluno = function (request, response) {
             response.json({"message": "success", "insertAluno": rows })
         }
     })
-    con.end();
+    con.end()
 } 
-module.exports.postDisciplina = function (request, response) {//
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
-   
+module.exports.postDisciplina = function (request, response) {
+    let con = openConnectionDB(conexao)
+    
+    console.log("TESTE")
+    
     var query = "insert into disciplina values(null, ?, ?, 1)"
 
     con.query(mysql.format(query, [request.params.disc_nome, request.params.disc_docente]), function(err, rows) {
@@ -134,12 +118,10 @@ module.exports.postDisciplina = function (request, response) {//
             response.json({"message": "success", "insertDisciplina": rows })
         }
     })
-    con.end();
+    con.end()
 } 
 module.exports.postInscricao = function (request, response) {
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+    let con = openConnectionDB(conexao)
    
     var query = "insert into inscricao values(?, ?, ?)"
 
@@ -150,15 +132,13 @@ module.exports.postInscricao = function (request, response) {
             response.json({"message": "success", "insertInscricao": rows })
         }
     })
-    con.end();
+    con.end()
 }
 /*-----------------------Delete-----------------------------------*/
 module.exports.deleteAluno = function (request, response) {
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+    let con = openConnectionDB(conexao)
    
-    var query = " delete from aluno where aluno_id = ?"
+    var query = "delete from aluno where aluno_id = ?"
 
     con.query(mysql.format(query, [request.params.aluno_id]), function(err, rows) {
         if (err) {
@@ -167,14 +147,12 @@ module.exports.deleteAluno = function (request, response) {
             response.json({"message": "success", "deleteAluno": rows })
         }
     })
-    con.end();
+    con.end()
 }
 module.exports.deleteDisciplina = function (request, response) {
-    //let con = openConnectionDB(conexao)
-   var con = mysql.createConnection(conexao);
-   con.connect();
+    let con = openConnectionDB(conexao)
    
-    var query = " delete from disciplina where disc_id = ?"
+    var query = "delete from disciplina where disc_id = ?"
 
     con.query(mysql.format(query, [request.params.disc_id]), function(err, rows) {
         if (err) {
@@ -183,5 +161,5 @@ module.exports.deleteDisciplina = function (request, response) {
             response.json({"message": "success", "deleteDisciplina": rows })
         }
     })
-    con.end();
+    con.end()
 } 

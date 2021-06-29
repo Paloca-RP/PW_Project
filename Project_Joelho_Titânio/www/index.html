@@ -25,7 +25,9 @@
   <fieldset>
     <legend>Alunos</legend>
 
-    <div id="Insert_alunos"></div><br>
+    <div id="Insert_alunos"></div>
+    
+    <br>
 
   <!--Modal para inserir alunos-->
       <button type="button" id="myBtn" class = "ModallADDaluno"><img src="Images/add_modall.png" alt="add_aluno"></button>
@@ -38,20 +40,23 @@
             <div class="modal-header">                
               <h4 class="modal-title">Aluno</h4>
             </div>
-            <div class="modal-body" id = "add_aluno">
+            <div class="modal-body">
               <fieldset><br>
-                <label for="Nome">Nome: <input type="text" id="nome"></label>
-                <br><br>
-                <label for="dataNasc">Data Nascimento: <input type="date" id="dataNasc"></label>
-                <br><br>
-                <label for="genero">Genero: <input type="text" id="genero"></label>
-                <br><br>
-                <label for="email">Email: <input type="text" id="email"></label>
-                <br><br>
-                <label for="foto">Foto: <input type="text" id="foto"></label>
-                <br><br>
-                <button><img src="Images/add_modall.png" alt="add"></button>     
-                <br><br>
+                <div id = "add_aluno">
+                 <br>
+                  <label for="Nome">Nome: </label><input type="text" id="nome">
+                  <br><br>
+                  <label for="dataNasc">Data Nascimento: </label> <input type="date" id="dataNasc">
+                  <br><br>
+                  <label for="genero">Genero: </label> <input type="text" id="genero">
+                  <br><br>
+                  <label for="email">Email: </label> <input type="text" id="email">
+                  <br><br>
+                  <label for="foto">Foto: </label> <input type="text" id="foto">
+                  <br><br>
+                  <button><img src="Images/add_modall.png" alt="add"></button>                    
+                </div>
+                <br>
               </fieldset>
             </div>
             <div class="modal-footer">
@@ -83,13 +88,15 @@
           <div class="modal-header">
             <h4 class="modal-title">Disciplinas</h4>
           </div>
-          <div class="modal-body" id ="addDisciplina">
-            <fieldset><br>      
-              <label for="Nome">Disciplina: <input type="text" id="disciplina"></label>
-              <br><br>
-              <label for="docente">Docente: <input type="text" id="docente"></label>
-              <br><br>    
-              <button onclick="guardarDisc()"><img src="Images/add_modall.png" alt="add"></button>   <br>  <br>
+          <div class="modal-body">
+            <fieldset><br>  
+              <div  id ="addDisciplina">
+                <label for="Nome">Disciplina: </label><input type="text" id="disciplina">
+                <br><br>
+                <label for="docente">Docente: </label><input type="text" id="docente">
+                <br><br>    
+                <button ><img src="Images/add_modall.png" alt="add"></button>   <br>  <br>
+              </div>  
             </fieldset>
           </div>
           <div class="modal-footer">
@@ -118,14 +125,16 @@
          <div class="modal-header">
            <h4 class="modal-title">Adicionar alunos nas disciplinas</h4>
          </div>
-         <div class="modal-body" id = "add_aluDIsC">
+         <div class="modal-body">
           <fieldset><br>
-            <label for="disciplina">ID_Disciplina: <input type="text" id="disciplinaID"></label>
-            <br><br>
-            <label for="aluno">ID_Aluno: <input type="text" id="alunoID"></label>
-            <br><br>
-            <label for="nota">Nota(s): <input type="text" id="nota"></label>
-            <br><br><button><img src="Images/add_modall.png" alt="add"></button><br><br>
+            <div  id = "add_aluDIsC">
+              <label for="disciplina">ID_Disciplina: </label><input type="text" id="disciplinaID">
+              <br><br>
+              <label for="aluno">ID_Aluno: </label><input type="text" id="alunoID">
+              <br><br>
+              <label for="nota">Nota(s): </label><input type="text" id="nota">
+              <br><br><button><img src="Images/add_modall.png" alt="add"></button><br><br>
+            </div>
           </fieldset>
          </div>
          <div class="modal-footer">

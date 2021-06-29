@@ -25,3 +25,5 @@ app.delete("/deleteDisciplina/:disc_id", requestHandlers.deleteDisciplina)
 app.listen(8081, function() {
     console.log("http://localhost:8081")
 })
+
+

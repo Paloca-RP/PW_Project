@@ -12,12 +12,12 @@ function getTodosAlunos() {
         for (let aux of obj.showTodosAlunos) {
             aux.aluno_dataNasc = aux.aluno_dataNasc.split("T")[0]
         }
-        while (document.getElementById("Insert_alunos")) {
-            document.getElementById("Insert_alunos").removeChild(document.getElementById("Insert_alunos".firstChild))
+        while (document.getElementById("Insert_alunos").firstChild) {
+            document.getElementById("Insert_alunos").removeChild(document.getElementById("Insert_alunos").firstChild)
         }
         
         var table = document.createElement("table") //cabeçalho da table
-        table.appendChild(tableLine({"Nome" : 0, "Data Nascimento" : 0, "Género" : 0, "Email" : 0, "Foto" : 0, "Apagar" : 0}, true))
+        table.appendChild(tableLine({"ID" : 0,"Nome" : 0, "Data Nascimento" : 0, "Género" : 0, "Email" : 0, "Foto" : 0, "Apagar" : 0}, true))
         
         for (let showAluno of obj.showTodosAlunos) {
             var aluno_id = showAluno.aluno_id
@@ -30,7 +30,8 @@ function getTodosAlunos() {
             var deleteBTN = document.createElement("img") 
                 deleteBTN.src = "../Images/apagar.png"
             
-            var tr = tableRow ({
+            var tr = tableLine ({
+                "ID" : aluno_id,
                 "Nome" : aluno_nome,
                 "Data Nascimento" : aluno_dataNasc, 
                 "Género" : aluno_genero, 
@@ -44,26 +45,8 @@ function getTodosAlunos() {
         }
 
         table.onload = EliminarAlunos(table)
-        document.getElementById("getTodosAlunos").appendChild(table)
+        document.getElementById("Insert_alunos").appendChild(table)
     })
-}
-function EliminarAlunos(table) {
-    var contador = 1
-
-    for (let row of table.children) { 
-        if (contador != 1) {
-            row.children[5].onclick = function() {
-                http("DELETE", "/deleteAluno/" + row.getAttribute("value"), function(obj){
-                    if (obj.error) {
-                        throw obj.error
-                    }
-                    alert("Eliminado !!")
-                    getTodosAlunos()
-                })
-            }
-        }
-        contador = 0
-    }    
 }
 function getTodosDisciplinas() { 
     http("GET", "/getTodasDisciplinas", function(obj) {
@@ -72,11 +55,11 @@ function getTodosDisciplinas() {
         }
 
         while(document.getElementById("Insert_Disc").firstChild) {
-            document.getElementById("Insert_Disc").removeChild(document.getElementById("Insert_disc").firstChild)
+            document.getElementById("Insert_Disc").removeChild(document.getElementById("Insert_Disc").firstChild)
         }
 
-        var table = document.createElement('table');
-        table.appendChild(createTableLine({"Disciplina":0, "Docente":0, "Apagar":0}, true));
+        var table = document.createElement('table')
+        table.appendChild(tableLine({"ID" : 0, "Disciplina":0, "Docente":0, "Apagar":0}, true))
 
         for (let showDisciplina of obj.showTodasDisciplinas) {
             var disc_id = showDisciplina.disc_id
@@ -87,6 +70,7 @@ function getTodosDisciplinas() {
                 deleteBTN.src = "../Images/apagar.png"
             
             var tr = tableLine ({
+                "ID" : disc_id,
                 "Nome" : disc_nome,
                 "Docente" : disc_docente,
                 "Apagar" : "" }, false)
@@ -96,30 +80,9 @@ function getTodosDisciplinas() {
             table.appendChild(tr)
         }
 
-        table.onload = EliminarDiscplinas(table)
-        document.getElementById("getTodosDisciplinas").appendChild(table)        
+        table.onload = EliminarDisciplinas(table)
+        document.getElementById("Insert_Disc").appendChild(table)        
     })
-}
-function EliminarDisciplinas(table)
-{
-    var counter = 1
-
-    for(let row of table.children) {
-        if(counter != 1)
-        {
-            row.children[2].onclick = function(){
-                RequestHTTPOrders("DELETE", "/deleteDisciplina/" + row.getAttribute("value"), function(obj){
-                    if(obj.error) {
-                        throw obj.error
-                    }
-                    alert("Eliminado !")
-
-                    carregarDisciplinas()
-                })
-            }
-        }
-        counter = 0
-    }
 }
 function getTurma() {
     http("GET", "/getTurma", function(obj) {
@@ -134,40 +97,20 @@ function getTurma() {
             var curso = showTurma.curso
 
             if (document.querySelector("body > h3.turma_Nome").innerHTML == "") {
-                document.querySelector("body > h3").innerHTML = "Turma: " + turma_nome + turma_ano + "Curso: " + curso + "Professor: " + turma_responsavel  
+                document.querySelector("body > h3").innerHTML = "Turma: " + turma_nome + turma_ano + " Curso: " + curso + " Professor: " + turma_responsavel  
             }
         }
     })
 }
-document.querySelector("button.ModallADDDisc").onclick = function() {
-    var add = document.getElementById("addDisciplina")
-
-    add.firstElementChild.children[5].onclick = function() { 
-        var nome_disc = add.firstElementChild.children[2]
-        var docente_disc = add.firstElementChild.children[4]
-
-        http("POST", "/postDisciplina/" + nome_disc,value + "/" + docente_disc.value, function(obj) {
-            if(obj.error) {
-                throw obj.error;
-            }
-
-            for(let aux of add.children[0].children) {
-                aux.value = "";
-            }
-            alert("Done!")
-            getTodosDisciplinas()
-        })
-    }
-}
 document.querySelector("button.ModallADDaluno").onclick = function() {
     var add = document.getElementById("add_aluno")
 
-    add.firstElementChild.children[11].onclick = function() {
-        var aluno_nome = add.firstElementChild.children[2];
-        var aluno_dataNasc = add.firstElementChild.children[4]; 
-        var aluno_genero = add.firstElementChild.children[6]; 
-        var aluno_email = add.firstElementChild.children[8]; 
-        var aluno_foto = add.firstElementChild.children[10]; 
+    add.children[21].onclick = function() {
+        var aluno_nome = add.children[2]
+        var aluno_dataNasc = add.children[6] 
+        var aluno_genero = add.children[10] 
+        var aluno_email = add.children[14] 
+        var aluno_foto = add.children[18]
 
         http("POST", "/postAluno/" + aluno_nome.value + "/" + aluno_dataNasc.value + "/" + aluno_genero.value + "/" + aluno_email.value + "/" + aluno_foto.value, function(obj){
             if(obj.error) {
@@ -177,19 +120,40 @@ document.querySelector("button.ModallADDaluno").onclick = function() {
             for(let aux of add.children[0].children) {
                 aux.value = ""
             }
-            alert('Aluno adicionado com sucesso!')
+            alert("Aluno adicionado")
 
             getTodosAlunos()
         })
     }
 
 }
+document.querySelector("button.ModallADDDisc").onclick = function() {
+    var add = document.getElementById("addDisciplina")
+        
+    add.children[8].onclick = function() { 
+        var nome_disc = add.children[1]
+        var docente_disc = add.children[5]
+        console.log("test")
+        http("POST", "/postDisciplina/" + nome_disc.value + "/" + docente_disc.value, function(obj) {
+            if(obj.error) {
+                throw obj.error
+            }
+
+            for(let aux of add.children[0].children) {
+                aux.value = ""
+            }
+            alert("Disciplina Adicionada!")
+            getTodosDisciplinas()
+        })
+    }
+}
 document.querySelector('button.ModallAluDisc').onclick = function() {
     var add = document.getElementById("add_aluDIsC")
-    inscricao.firstElementChild.children[7].onclick = function() {
-        var fk_disciplina = add.firstElementChild.children[4]
-        var fk_aluno = add.firstElementChild.children[2]
-        var obs = add.firstElementChild.children[6]
+    
+    add.children[12].onclick = function() {
+        var fk_disciplina = add.children[1]
+        var fk_aluno = add.children[5]
+        var obs = add.children[9]
 
         http("POST", "/postInscricao/" + fk_disciplina.value + "/" + fk_aluno.value + "/" + obs.value, function(obj) {
             if(obj.error)
@@ -197,9 +161,48 @@ document.querySelector('button.ModallAluDisc').onclick = function() {
                 alert("Done !")
                 throw obj.error
             }
-            alert('Aluno inscrito com sucesso!')
+            alert("Aluno inscrito com sucesso!")
         })
     }
+}
+function EliminarDisciplinas(tabela)
+{
+    var contador = 1
+
+    for(let row of tabela.children) {
+        if(contador != 1)
+        {
+            row.children[3].onclick = function(){
+                http("DELETE", "/deleteDisciplina/" + row.getAttribute("value"), function(obj){
+                    if(obj.error) {
+                        throw obj.error
+                    }
+                    alert("Eliminado !")
+
+                    getTodosDisciplinas()
+                })
+            }
+        }
+        contador = 0
+    }
+}
+function EliminarAlunos(tabela) {
+    var contador = 1
+
+    for (let row of tabela.children) { 
+        if (contador != 1) {
+            row.children[6].onclick = function() {
+                http("DELETE", "/deleteAluno/" + row.getAttribute("value"), function(obj){
+                    if (obj.error) {
+                        throw obj.error
+                    }
+                    alert("Eliminado !!")
+                    getTodosAlunos()
+                })
+            }
+        }
+        contador = 0
+    }    
 }
 function tableLine(object, headerFormat) {
     var tr = document.createElement("tr")
