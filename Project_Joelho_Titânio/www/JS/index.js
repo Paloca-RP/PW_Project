@@ -96,13 +96,8 @@ function getTodosDisciplinas() {
             document.getElementById("Insert_Disc").removeChild(document.getElementById("Insert_Disc").firstChild)
         }
 
-<<<<<<< Updated upstream
         var table = document.createElement('table')
         table.appendChild(tableLine({"ID" : 0, "Disciplina":0, "Docente":0, "Apagar":0}, true))
-=======
-        var table = document.createElement('table');
-        table.appendChild(tableLine({"ID" : 0, "Disciplina":0, "Docente":0, "Apagar":0}, true));
->>>>>>> Stashed changes
 
         for (let showDisciplina of obj.showTodasDisciplinas) {
             var disc_id = showDisciplina.disc_id
@@ -139,13 +134,12 @@ function getTurma() {
             var turma_responsavel = showTurma.turma_responsavel
             var curso = showTurma.curso
 
-            if (document.querySelector("body > h3.turma_Nome").innerHTML == "") {
-                document.querySelector("body > h3").innerHTML = "Turma: " + turma_nome + turma_ano + " Curso: " + curso + " Professor: " + turma_responsavel  
+            if (document.querySelector("body > h2.turma_Nome").innerHTML == "") {
+                document.querySelector("body > h2").innerHTML = "Turma: " + turma_nome + "   Ano: "+ turma_ano + " <br>Curso: " + curso + " <br>Professor: " + turma_responsavel  
             }
         }
     })
 }
-<<<<<<< Updated upstream
 document.querySelector("button.ModallADDaluno").onclick = function() {
     var add = document.getElementById("add_aluno")
 
@@ -157,16 +151,6 @@ document.querySelector("button.ModallADDaluno").onclick = function() {
         var aluno_foto = add.children[18]
 
         http("POST", "/postAluno/" + aluno_nome.value + "/" + aluno_dataNasc.value + "/" + aluno_genero.value + "/" + aluno_email.value + "/" + aluno_foto.value, function(obj){
-=======
-document.querySelector("button.ModallADDDisc").onclick = function() {
-    var add = document.getElementById("addDisciplina")
-        
-    add.children[8].onclick = function() { 
-        var nome_disc = add.children[1]
-        var docente_disc = add.children[5]
-        console.log("test")
-        http("POST", "/postDisciplina/" + nome_disc.value + "/" + docente_disc.value, function(obj) {
->>>>>>> Stashed changes
             if(obj.error) {
                 throw obj.error
             }
@@ -179,37 +163,6 @@ document.querySelector("button.ModallADDDisc").onclick = function() {
             getTodosAlunos()
         })
     }
-<<<<<<< Updated upstream
-=======
-}
-document.querySelector('button.ModallAluDisc').onclick = function() {
-    var add = document.getElementById("add_aluDIsC")
-    
-    add.children[12].onclick = function() {
-        var fk_disciplina = add.children[1]
-        var fk_aluno = add.children[5]
-        var obs = add.children[9]
-
-        http("POST", "/postInscricao/" + fk_disciplina.value + "/" + fk_aluno.value + "/" + obs.value, function(obj) {
-            if(obj.error)
-            {
-                alert("Done !")
-                throw obj.error
-            }
-            alert('Aluno inscrito com sucesso!')
-        })
-    }
-}
-document.querySelector("button.ModallADDaluno").onclick = function() {
-    var add = document.getElementById("add_aluno")
-
-    add.children[21].onclick = function() {
-        var aluno_nome = add.children[2]
-        var aluno_dataNasc = add.children[6] 
-        var aluno_genero = add.children[10] 
-        var aluno_email = add.children[14] 
-        var aluno_foto = add.children[18]
->>>>>>> Stashed changes
 
 }
 document.querySelector("button.ModallADDDisc").onclick = function() {
@@ -232,7 +185,6 @@ document.querySelector("button.ModallADDDisc").onclick = function() {
         })
     }
 }
-<<<<<<< Updated upstream
 document.querySelector('button.ModallAluDisc').onclick = function() {
     var add = document.getElementById("add_aluDIsC")
     
@@ -290,8 +242,6 @@ function EliminarAlunos(tabela) {
         contador = 0
     }    
 }
-=======
->>>>>>> Stashed changes
 function tableLine(object, headerFormat) {
     var tr = document.createElement("tr")
     var tableCell = null

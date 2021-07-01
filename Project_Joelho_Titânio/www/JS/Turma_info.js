@@ -3,7 +3,6 @@ window.onload = function(event) {
     getTodosDisciplinas()   
 }
 
-<<<<<<< Updated upstream
 function getTodosAlunos() {
     http("GET", "/getTodosAlunos", function(obj) {
         if (obj.error) {
@@ -76,12 +75,6 @@ function pintar(tabela){
     
     var contador = 1
 
-=======
-function pintar(tabela){
-    
-    var contador = 1
-
->>>>>>> Stashed changes
     for(let row of tabela.children) {
         if(contador != 1) {
             row.onclick = function(){

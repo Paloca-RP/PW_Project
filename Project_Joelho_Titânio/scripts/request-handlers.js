@@ -104,11 +104,7 @@ module.exports.postAluno = function (request, response) {
     })
     con.end()
 } 
-<<<<<<< Updated upstream
 module.exports.postDisciplina = function (request, response) {
-=======
-module.exports.postDisciplina = function (request, response) {//
->>>>>>> Stashed changes
     let con = openConnectionDB(conexao)
     
     console.log("TESTE")
